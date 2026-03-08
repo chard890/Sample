@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,10 +8,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
     <style>
         :root {
-            --primary-color: #4285F4; /* Google Blue */
+            --primary-color: #4285F4;
+            /* Google Blue */
             --primary-hover: #3367D6;
             --bg-color: #FFFFFF;
             --text-main: #202124;
@@ -42,7 +45,8 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            padding-top: 100px; /* Space for floating navbar */
+            padding-top: 100px;
+            /* Space for floating navbar */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -159,6 +163,7 @@
         .btn-nav-primary:hover {
             background-color: #2D2D2D;
         }
+
         .hero-buttons {
             display: flex;
             gap: 16px;
@@ -204,7 +209,7 @@
             background-color: #F8F9FA;
             border-color: #D2E3FC;
             transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
         }
 
         .btn-glow {
@@ -231,9 +236,17 @@
         }
 
         @keyframes glow-move {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         .hero-section {
@@ -334,13 +347,27 @@
         }
 
         @keyframes float-1 {
-            0%, 100% { transform: translate(0, 0) rotate(-4deg); }
-            50% { transform: translate(10px, -15px) rotate(-2deg); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(-4deg);
+            }
+
+            50% {
+                transform: translate(10px, -15px) rotate(-2deg);
+            }
         }
 
         @keyframes float-2 {
-            0%, 100% { transform: translate(0, 0) rotate(2deg); }
-            50% { transform: translate(-10px, 15px) rotate(4deg); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) rotate(2deg);
+            }
+
+            50% {
+                transform: translate(-10px, 15px) rotate(4deg);
+            }
         }
 
         /* Fragment Content Styles */
@@ -385,19 +412,45 @@
             margin-top: 8px;
         }
 
-        .status-blue { background: #E8F0FE; color: var(--primary-color); }
-        .status-green { background: #E6F4EA; color: #137333; }
+        .status-blue {
+            background: #E8F0FE;
+            color: var(--primary-color);
+        }
+
+        .status-green {
+            background: #E6F4EA;
+            color: #137333;
+        }
 
         @media (max-width: 1200px) {
-            .fragment-1 { left: 0; top: -100px; }
-            .fragment-3 { right: 0; top: -50px; }
-            .hero-headline { font-size: 4rem; }
+            .fragment-1 {
+                left: 0;
+                top: -100px;
+            }
+
+            .fragment-3 {
+                right: 0;
+                top: -50px;
+            }
+
+            .hero-headline {
+                font-size: 4rem;
+            }
         }
 
         @media (max-width: 992px) {
-            .fragment { display: none; }
-            .hero-section { padding-top: 60px; min-height: auto; }
-            .hero-headline { font-size: 3rem; }
+            .fragment {
+                display: none;
+            }
+
+            .hero-section {
+                padding-top: 60px;
+                min-height: auto;
+            }
+
+            .hero-headline {
+                font-size: 3rem;
+            }
         }
 
         /* Animations */
@@ -406,6 +459,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -413,14 +467,20 @@
         }
 
         @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
             }
+
             .nav-left {
                 gap: 20px;
             }
@@ -431,21 +491,22 @@
             .navbar-wrapper {
                 padding: 0 16px;
             }
+
             .navbar {
                 padding: 8px 8px 8px 24px;
             }
-            
+
             .hero-section {
                 flex-direction: column;
                 padding: 60px 24px;
                 gap: 50px;
             }
-            
+
             .hero-content {
                 max-width: 100%;
                 text-align: center;
             }
-            
+
             .hero-buttons {
                 justify-content: center;
             }
@@ -453,7 +514,7 @@
             .hero-supporting-text {
                 justify-content: center;
             }
-            
+
             .hero-headline {
                 font-size: 2.75rem;
             }
@@ -472,7 +533,7 @@
             .hero-buttons {
                 flex-direction: column;
             }
-            
+
             .btn {
                 width: 100%;
             }
@@ -802,8 +863,15 @@
         }
 
         @keyframes ai-pulse {
-            0% { transform: scale(0.85); opacity: 1; }
-            100% { transform: scale(1.3); opacity: 0; }
+            0% {
+                transform: scale(0.85);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1.3);
+                opacity: 0;
+            }
         }
 
         .ai-engine .material-symbols-outlined {
@@ -966,6 +1034,7 @@
         }
 
         @media (max-width: 992px) {
+
             .step-row,
             .step-row.reverse {
                 flex-direction: column;
@@ -1041,8 +1110,17 @@
         }
 
         @keyframes pulse-dot {
-            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(52, 168, 83, 0.4); }
-            50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(52, 168, 83, 0); }
+
+            0%,
+            100% {
+                opacity: 1;
+                box-shadow: 0 0 0 0 rgba(52, 168, 83, 0.4);
+            }
+
+            50% {
+                opacity: 0.7;
+                box-shadow: 0 0 0 6px rgba(52, 168, 83, 0);
+            }
         }
 
         /* Ticker rows */
@@ -1094,13 +1172,23 @@
         }
 
         @keyframes scroll-left {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         @keyframes scroll-right {
-            0% { transform: translateX(-50%); }
-            100% { transform: translateX(0); }
+            0% {
+                transform: translateX(-50%);
+            }
+
+            100% {
+                transform: translateX(0);
+            }
         }
 
         /* Ticker card */
@@ -1233,7 +1321,7 @@
             width: 100%;
             background: #FFFFFF;
         }
-        
+
         .why-premium-inner {
             max-width: 1200px;
             margin: 0 auto;
@@ -1245,7 +1333,8 @@
 
         .why-text-col {
             flex: 1;
-            padding: 30vh 0; /* Creates scrollable space */
+            padding: 30vh 0;
+            /* Creates scrollable space */
         }
 
         .why-step {
@@ -1279,7 +1368,7 @@
             margin-bottom: 24px;
             color: var(--primary-color);
             border: 1px solid #E8EAED;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.03);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.03);
             transition: background 0.4s ease, border-color 0.4s ease;
         }
 
@@ -1311,7 +1400,8 @@
         .why-visual-col {
             flex: 1.2;
             position: sticky;
-            top: 20vh;  /* Sticky position relative to viewport */
+            top: 20vh;
+            /* Sticky position relative to viewport */
             height: 60vh;
             min-height: 500px;
             max-height: 700px;
@@ -1323,7 +1413,7 @@
             background: #F8F9FA;
             border: 1px solid #E8EAED;
             border-radius: 32px;
-            box-shadow: 0 24px 80px rgba(0,0,0,0.04), inset 0 2px 4px rgba(255,255,255,0.5);
+            box-shadow: 0 24px 80px rgba(0, 0, 0, 0.04), inset 0 2px 4px rgba(255, 255, 255, 0.5);
             position: relative;
             overflow: hidden;
         }
@@ -1337,7 +1427,7 @@
             transform: translate(-50%, -50%);
             width: 80%;
             height: 80%;
-            background: radial-gradient(circle, rgba(66,133,244,0.1) 0%, rgba(248,249,250,0) 70%);
+            background: radial-gradient(circle, rgba(66, 133, 244, 0.1) 0%, rgba(248, 249, 250, 0) 70%);
             z-index: 0;
             pointer-events: none;
         }
@@ -1368,6 +1458,7 @@
             width: 100%;
             height: 100%;
         }
+
         .viz-1-center {
             position: absolute;
             top: 50%;
@@ -1377,29 +1468,42 @@
             height: 80px;
             background: #FFFFFF;
             border-radius: 20px;
-            box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
             display: flex;
             align-items: center;
             justify-content: center;
             border: 2px solid var(--primary-color);
             z-index: 2;
         }
-        .viz-1-center .material-symbols-outlined { color: var(--primary-color); font-size: 36px; }
-        
+
+        .viz-1-center .material-symbols-outlined {
+            color: var(--primary-color);
+            font-size: 36px;
+        }
+
         .viz-1-target {
             position: absolute;
             width: 220px;
             background: #FFFFFF;
             border-radius: 16px;
             padding: 16px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
             border: 1px solid #E8EAED;
             left: 55%;
             z-index: 2;
         }
-        .viz-1-target.t1 { top: 20%; }
-        .viz-1-target.t2 { top: 45%; }
-        .viz-1-target.t3 { top: 70%; }
+
+        .viz-1-target.t1 {
+            top: 20%;
+        }
+
+        .viz-1-target.t2 {
+            top: 45%;
+        }
+
+        .viz-1-target.t3 {
+            top: 70%;
+        }
 
         .viz-target-header {
             display: flex;
@@ -1407,6 +1511,7 @@
             gap: 12px;
             margin-bottom: 8px;
         }
+
         .viz-target-avatar {
             width: 32px;
             height: 32px;
@@ -1416,11 +1521,28 @@
             align-items: center;
             justify-content: center;
         }
-        .viz-target-avatar .material-symbols-outlined { font-size: 16px; color: #5F6368; }
-        .viz-target-bars div { height: 6px; border-radius: 4px; background: #E8EAED; margin-bottom: 4px; }
-        .viz-target-bars div:first-child { width: 80px; background: #BDC1C6; }
-        .viz-target-bars div:last-child { width: 40px; }
-        
+
+        .viz-target-avatar .material-symbols-outlined {
+            font-size: 16px;
+            color: #5F6368;
+        }
+
+        .viz-target-bars div {
+            height: 6px;
+            border-radius: 4px;
+            background: #E8EAED;
+            margin-bottom: 4px;
+        }
+
+        .viz-target-bars div:first-child {
+            width: 80px;
+            background: #BDC1C6;
+        }
+
+        .viz-target-bars div:last-child {
+            width: 40px;
+        }
+
         /* Animated SVG Lines */
         .viz-1-lines {
             position: absolute;
@@ -1429,6 +1551,7 @@
             width: 100%;
             height: 100%;
         }
+
         .viz-1-line path {
             stroke: #D2E3FC;
             stroke-width: 3;
@@ -1436,8 +1559,11 @@
             stroke-dasharray: 10 10;
             animation: dash-flow 2s linear infinite;
         }
+
         @keyframes dash-flow {
-            to { stroke-dashoffset: -20; }
+            to {
+                stroke-dashoffset: -20;
+            }
         }
 
         /* --- VISUAL 2: Save hours (Clock to Check) --- */
@@ -1447,6 +1573,7 @@
             align-items: center;
             justify-content: center;
         }
+
         .viz-2-circle {
             width: 140px;
             height: 140px;
@@ -1458,17 +1585,25 @@
             position: relative;
             margin-bottom: 32px;
         }
+
         .viz-2-icon {
             font-size: 64px;
             color: var(--primary-color);
             position: absolute;
         }
+
         .viz-2-icon.clock {
             animation: rotate-clock 4s linear infinite;
         }
+
         @keyframes rotate-clock {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
         }
 
         .viz-2-bars {
@@ -1477,6 +1612,7 @@
             gap: 16px;
             width: 250px;
         }
+
         .viz-2-bar {
             height: 16px;
             border-radius: 8px;
@@ -1484,11 +1620,25 @@
             width: 100%;
             animation: pulse-bar 2s ease-in-out infinite alternate;
         }
-        .viz-2-bar:nth-child(2) { width: 80%; animation-delay: 0.2s; }
-        .viz-2-bar:nth-child(3) { width: 60%; animation-delay: 0.4s; }
+
+        .viz-2-bar:nth-child(2) {
+            width: 80%;
+            animation-delay: 0.2s;
+        }
+
+        .viz-2-bar:nth-child(3) {
+            width: 60%;
+            animation-delay: 0.4s;
+        }
+
         @keyframes pulse-bar {
-            0% { opacity: 0.5; }
-            100% { opacity: 1; }
+            0% {
+                opacity: 0.5;
+            }
+
+            100% {
+                opacity: 1;
+            }
         }
 
         /* --- VISUAL 3: Compare before (Stack of cards) --- */
@@ -1497,6 +1647,7 @@
             width: 280px;
             height: 360px;
         }
+
         .viz-3-card {
             position: absolute;
             width: 100%;
@@ -1504,22 +1655,56 @@
             background: #FFFFFF;
             border-radius: 20px;
             border: 1px solid #E8EAED;
-            box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
             padding: 24px;
             transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .viz-layer.active .viz-3-card:nth-child(1) { transform: translateY(0); z-index: 3;}
-        .viz-layer.active .viz-3-card:nth-child(2) { transform: translateY(110px) scale(0.95); z-index: 2; }
-        .viz-layer.active .viz-3-card:nth-child(3) { transform: translateY(220px) scale(0.9); z-index: 1; }
-        
+
+        .viz-layer.active .viz-3-card:nth-child(1) {
+            transform: translateY(0);
+            z-index: 3;
+        }
+
+        .viz-layer.active .viz-3-card:nth-child(2) {
+            transform: translateY(110px) scale(0.95);
+            z-index: 2;
+        }
+
+        .viz-layer.active .viz-3-card:nth-child(3) {
+            transform: translateY(220px) scale(0.9);
+            z-index: 1;
+        }
+
         .viz-layer:not(.active) .viz-3-card {
             transform: translateY(110px) scale(0.9) !important;
         }
-        
-        .viz-3-header { display: flex; justify-content: space-between; margin-bottom: 20px;}
-        .viz-3-circle { width: 40px; height: 40px; border-radius: 50%; background: #F1F3F4; }
-        .viz-3-price { font-size: 20px; font-weight: 700; color: var(--primary-color);}
-        .viz-3-line { height: 8px; border-radius: 4px; background: #E8EAED; width: 60%; margin-bottom: 8px;}
+
+        .viz-3-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        .viz-3-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #F1F3F4;
+        }
+
+        .viz-3-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .viz-3-line {
+            height: 8px;
+            border-radius: 4px;
+            background: #E8EAED;
+            width: 60%;
+            margin-bottom: 8px;
+        }
 
         /* --- VISUAL 4: AI Matching (Glowing orb) --- */
         .viz-4-content {
@@ -1530,6 +1715,7 @@
             width: 100%;
             height: 100%;
         }
+
         .ai-core {
             width: 100px;
             height: 100px;
@@ -1543,35 +1729,67 @@
             z-index: 3;
             animation: pulse-core 3s infinite alternate;
         }
+
         .ai-core .material-symbols-outlined {
             color: #FFF;
             font-size: 48px;
         }
+
         @keyframes pulse-core {
-            0% { transform: scale(1); box-shadow: 0 0 30px rgba(66, 133, 244, 0.3); }
-            100% { transform: scale(1.1); box-shadow: 0 0 60px rgba(66, 133, 244, 0.6); }
+            0% {
+                transform: scale(1);
+                box-shadow: 0 0 30px rgba(66, 133, 244, 0.3);
+            }
+
+            100% {
+                transform: scale(1.1);
+                box-shadow: 0 0 60px rgba(66, 133, 244, 0.6);
+            }
         }
+
         .ai-ring {
             position: absolute;
             border-radius: 50%;
             border: 1px solid rgba(66, 133, 244, 0.2);
             animation: pulse-ring 4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
         }
-        .ai-ring-1 { width: 200px; height: 200px; }
-        .ai-ring-2 { width: 340px; height: 340px; animation-delay: 1s; }
-        .ai-ring-3 { width: 480px; height: 480px; animation-delay: 2s; }
-        @keyframes pulse-ring {
-            0% { transform: scale(0.5); opacity: 1; }
-            100% { transform: scale(1.2); opacity: 0; }
+
+        .ai-ring-1 {
+            width: 200px;
+            height: 200px;
         }
-        
+
+        .ai-ring-2 {
+            width: 340px;
+            height: 340px;
+            animation-delay: 1s;
+        }
+
+        .ai-ring-3 {
+            width: 480px;
+            height: 480px;
+            animation-delay: 2s;
+        }
+
+        @keyframes pulse-ring {
+            0% {
+                transform: scale(0.5);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1.2);
+                opacity: 0;
+            }
+        }
+
         .ai-float {
             position: absolute;
             width: 48px;
             height: 48px;
             border-radius: 50%;
             background: #FFFFFF;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -1579,14 +1797,39 @@
             z-index: 4;
             animation: float-icon 6s ease-in-out infinite alternate;
         }
-        .ai-float:nth-child(4) { top: 20%; left: 20%; animation-delay: 0s; }
-        .ai-float:nth-child(5) { bottom: 20%; left: 25%; animation-delay: 1s; }
-        .ai-float:nth-child(6) { top: 30%; right: 20%; animation-delay: 2s; }
-        .ai-float:nth-child(7) { bottom: 25%; right: 25%; animation-delay: 3s; }
-        
+
+        .ai-float:nth-child(4) {
+            top: 20%;
+            left: 20%;
+            animation-delay: 0s;
+        }
+
+        .ai-float:nth-child(5) {
+            bottom: 20%;
+            left: 25%;
+            animation-delay: 1s;
+        }
+
+        .ai-float:nth-child(6) {
+            top: 30%;
+            right: 20%;
+            animation-delay: 2s;
+        }
+
+        .ai-float:nth-child(7) {
+            bottom: 25%;
+            right: 25%;
+            animation-delay: 3s;
+        }
+
         @keyframes float-icon {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-20px); }
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-20px);
+            }
         }
 
         @media (max-width: 992px) {
@@ -1595,7 +1838,17 @@
                 padding: 80px 32px;
                 gap: 40px;
             }
-            .why-text-col { padding: 0; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 24px; padding-bottom: 24px; min-width: 100%;}
+
+            .why-text-col {
+                padding: 0;
+                display: flex;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                gap: 24px;
+                padding-bottom: 24px;
+                min-width: 100%;
+            }
+
             .why-step {
                 min-width: 85vw;
                 min-height: auto;
@@ -1609,7 +1862,11 @@
                 background: #F8F9FA;
                 border-radius: 20px;
             }
-            .why-step.active { border-top-color: var(--primary-color); }
+
+            .why-step.active {
+                border-top-color: var(--primary-color);
+            }
+
             .why-visual-col {
                 position: relative;
                 top: 0;
@@ -1618,6 +1875,7 @@
                 flex: none;
             }
         }
+
         /* ========== BUSINESS PREMIUM SECTION ========== */
         .business-premium {
             padding: 160px 0;
@@ -1687,7 +1945,7 @@
             align-items: center;
             justify-content: center;
             color: var(--primary-color);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
             flex-shrink: 0;
         }
 
@@ -1709,7 +1967,7 @@
             background: #FFFFFF;
             border-radius: 24px;
             border: 1px solid #E8EAED;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.08);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.08);
             width: 100%;
             height: 540px;
             display: flex;
@@ -1744,9 +2002,20 @@
         }
 
         @keyframes pulse-dot {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.5); opacity: 0.5; }
-            100% { transform: scale(1); opacity: 1; }
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.5);
+                opacity: 0.5;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
         }
 
         .db-title {
@@ -1775,7 +2044,7 @@
             border: 1px solid #E8EAED;
             border-radius: 16px;
             padding: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
             display: flex;
             flex-direction: column;
             gap: 12px;
@@ -1785,7 +2054,10 @@
         }
 
         @keyframes slide-in-request {
-            to { opacity: 1; transform: translateY(0) scale(1); }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
         }
 
         .db-card-top {
@@ -1861,13 +2133,16 @@
                 gap: 60px;
                 padding: 0 32px;
             }
+
             .biz-text-col h2 {
                 font-size: 2.25rem;
             }
+
             .dashboard-mockup {
                 height: 480px;
             }
         }
+
         /* ========== AI MATCHING SECTION ========== */
         .ai-matching {
             padding: 160px 0;
@@ -1933,7 +2208,9 @@
         }
 
         @keyframes line-flow {
-            to { stroke-dashoffset: -200; }
+            to {
+                stroke-dashoffset: -200;
+            }
         }
 
         .ai-core-card {
@@ -1950,8 +2227,15 @@
         }
 
         @keyframes core-pulse {
-            0% { transform: scale(1); box-shadow: 0 20px 60px rgba(66, 133, 244, 0.1); }
-            100% { transform: scale(1.02); box-shadow: 0 20px 80px rgba(66, 133, 244, 0.25); }
+            0% {
+                transform: scale(1);
+                box-shadow: 0 20px 60px rgba(66, 133, 244, 0.1);
+            }
+
+            100% {
+                transform: scale(1.02);
+                box-shadow: 0 20px 80px rgba(66, 133, 244, 0.25);
+            }
         }
 
         .ai-core-header {
@@ -1979,7 +2263,7 @@
             border: 1px solid #E8EAED;
             border-radius: 16px;
             padding: 16px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
             text-align: left;
             opacity: 0.6;
             transform: scale(0.9);
@@ -1993,9 +2277,21 @@
             box-shadow: 0 12px 32px rgba(52, 168, 83, 0.12);
         }
 
-        .biz-match-card.m1 { top: 10%; right: 15%; }
-        .biz-match-card.m2 { top: 50%; right: 10%; transform: translateY(-50%) scale(0.9); }
-        .biz-match-card.m3 { bottom: 10%; right: 15%; }
+        .biz-match-card.m1 {
+            top: 10%;
+            right: 15%;
+        }
+
+        .biz-match-card.m2 {
+            top: 50%;
+            right: 10%;
+            transform: translateY(-50%) scale(0.9);
+        }
+
+        .biz-match-card.m3 {
+            bottom: 10%;
+            right: 15%;
+        }
 
         .biz-match-card h4 {
             margin: 0 0 4px;
@@ -2052,22 +2348,66 @@
         }
 
         @media (max-width: 992px) {
-            .ai-matching h2 { font-size: 2.25rem; }
-            .ai-features-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
-            .ai-network-container { height: 500px; }
-            .ai-core-card { width: 280px; }
-            .biz-match-card { width: 200px; }
-            .biz-match-card.m1 { right: 5%; }
-            .biz-match-card.m2 { right: 0; }
-            .biz-match-card.m3 { right: 5%; }
+            .ai-matching h2 {
+                font-size: 2.25rem;
+            }
+
+            .ai-features-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 32px;
+            }
+
+            .ai-network-container {
+                height: 500px;
+            }
+
+            .ai-core-card {
+                width: 280px;
+            }
+
+            .biz-match-card {
+                width: 200px;
+            }
+
+            .biz-match-card.m1 {
+                right: 5%;
+            }
+
+            .biz-match-card.m2 {
+                right: 0;
+            }
+
+            .biz-match-card.m3 {
+                right: 5%;
+            }
         }
 
         @media (max-width: 600px) {
-            .ai-features-grid { grid-template-columns: 1fr; }
-            .ai-network-container { flex-direction: column; height: auto; padding: 40px 0; gap: 40px;}
-            .biz-match-card { position: relative; inset: auto !important; transform: none !important; width: 100%; opacity: 1; margin-bottom: 16px;}
-            .ai-svg-overlay { display: none; }
+            .ai-features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-network-container {
+                flex-direction: column;
+                height: auto;
+                padding: 40px 0;
+                gap: 40px;
+            }
+
+            .biz-match-card {
+                position: relative;
+                inset: auto !important;
+                transform: none !important;
+                width: 100%;
+                opacity: 1;
+                margin-bottom: 16px;
+            }
+
+            .ai-svg-overlay {
+                display: none;
+            }
         }
+
         /* ========== EARLY ACCESS SECTION ========== */
         .early-access {
             padding: 160px 0;
@@ -2106,9 +2446,20 @@
             border-radius: 50%;
         }
 
-        .path-1 { width: 500px; height: 500px; }
-        .path-2 { width: 750px; height: 750px; }
-        .path-3 { width: 1000px; height: 1000px; }
+        .path-1 {
+            width: 500px;
+            height: 500px;
+        }
+
+        .path-2 {
+            width: 750px;
+            height: 750px;
+        }
+
+        .path-3 {
+            width: 1000px;
+            height: 1000px;
+        }
 
         .orbit-icon {
             position: absolute;
@@ -2119,8 +2470,8 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            border: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid rgba(0, 0, 0, 0.05);
             color: var(--orbit-color);
             transition: color 0.5s ease;
         }
@@ -2132,8 +2483,13 @@
 
         /* Animation for icons moving along circular paths */
         @keyframes orbit {
-            from { transform: rotate(0deg) translateX(var(--radius)) rotate(0deg); }
-            to { transform: rotate(360deg) translateX(var(--radius)) rotate(-360deg); }
+            from {
+                transform: rotate(0deg) translateX(var(--radius)) rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg) translateX(var(--radius)) rotate(-360deg);
+            }
         }
 
         .early-access-inner {
@@ -2180,7 +2536,7 @@
             padding: 32px;
             margin-bottom: 32px;
             display: inline-block;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.02);
         }
 
         .early-access-buttons {
@@ -2258,13 +2614,13 @@
             z-index: 1;
             transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
             overflow: hidden;
-            border: 1px solid rgba(0,0,0,0.03);
+            border: 1px solid rgba(0, 0, 0, 0.03);
             text-align: center;
         }
 
         .step-card:hover {
             transform: translateY(-12px);
-            box-shadow: 0 32px 64px rgba(0,0,0,0.06);
+            box-shadow: 0 32px 64px rgba(0, 0, 0, 0.06);
             border-color: rgba(66, 133, 244, 0.2);
         }
 
@@ -2346,14 +2702,14 @@
             justify-content: center;
             padding: 60px;
             transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-            border: 1px solid rgba(0,0,0,0.03);
+            border: 1px solid rgba(0, 0, 0, 0.03);
             text-decoration: none;
             color: inherit;
         }
 
         .benefit-panel:hover {
             flex: 1.4;
-            box-shadow: 0 40px 80px rgba(0,0,0,0.08);
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.08);
         }
 
         /* Customer Panel (Left) */
@@ -2380,8 +2736,8 @@
             content: '';
             position: absolute;
             inset: 0;
-            background-image: linear-gradient(rgba(66, 133, 244, 0.05) 1px, transparent 1px), 
-                              linear-gradient(90deg, rgba(66, 133, 244, 0.05) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(66, 133, 244, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(66, 133, 244, 0.05) 1px, transparent 1px);
             background-size: 40px 40px;
             opacity: 0.8;
             z-index: 0;
@@ -2404,7 +2760,7 @@
             font-weight: 600;
             color: var(--primary-color);
             margin-bottom: 32px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
         }
 
         .benefit-panel h3 {
@@ -2457,7 +2813,7 @@
             align-items: center;
             justify-content: center;
             z-index: 10;
-            box-shadow: 0 12px 32px rgba(0,0,0,0.1);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
             border: 8px solid #FFFFFF;
             transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
@@ -2477,7 +2833,7 @@
             left: 41.67%;
         }
 
-        .benefit-panel:hover ~ .perspective-badge span {
+        .benefit-panel:hover~.perspective-badge span {
             transform: rotate(180deg);
         }
 
@@ -2518,8 +2874,13 @@
         }
 
         @keyframes glowFloat {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(100px, 50px) scale(1.2); }
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(100px, 50px) scale(1.2);
+            }
         }
 
         .final-cta-inner {
@@ -2541,14 +2902,14 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 40px 100px rgba(0,0,0,0.3);
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.3);
         }
 
         .cta-glass-card::before {
             content: '';
             position: absolute;
             inset: 0;
-            background: linear-gradient(135deg, rgba(255,255,255,0.05), transparent);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.05), transparent);
             pointer-events: none;
         }
 
@@ -2589,26 +2950,41 @@
             pointer-events: none;
         }
 
-        .accent-1 { 
-            top: 20%; 
-            left: calc(50% - 550px); 
-            animation-delay: 0s; 
+        .accent-1 {
+            top: 20%;
+            left: calc(50% - 550px);
+            animation-delay: 0s;
         }
-        .accent-2 { 
-            top: 25%; 
-            right: calc(50% - 550px); 
-            animation-delay: -2s; 
+
+        .accent-2 {
+            top: 25%;
+            right: calc(50% - 550px);
+            animation-delay: -2s;
         }
 
         /* Adjust for smaller screens */
         @media (max-width: 1250px) {
-            .accent-1 { left: 20px; top: 40px; }
-            .accent-2 { right: 20px; top: 80px; }
+            .accent-1 {
+                left: 20px;
+                top: 40px;
+            }
+
+            .accent-2 {
+                right: 20px;
+                top: 80px;
+            }
         }
 
         @keyframes accentFloat {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(3deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(3deg);
+            }
         }
 
         .final-cta .hero-buttons .btn-primary {
@@ -2698,20 +3074,46 @@
         }
 
         @media (max-width: 992px) {
-            .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
-            .dual-benefits-inner { flex-direction: column; }
-            .steps-grid { grid-template-columns: 1fr; }
-            .early-access h2 { font-size: 2.5rem; }
-            .final-cta h2 { font-size: 2.25rem; }
+            .footer-top {
+                grid-template-columns: 1fr 1fr;
+                gap: 40px;
+            }
+
+            .dual-benefits-inner {
+                flex-direction: column;
+            }
+
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .early-access h2 {
+                font-size: 2.5rem;
+            }
+
+            .final-cta h2 {
+                font-size: 2.25rem;
+            }
         }
 
         @media (max-width: 600px) {
-            .footer-top { grid-template-columns: 1fr; }
-            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
-            .early-access-buttons { flex-direction: column; }
+            .footer-top {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+
+            .early-access-buttons {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
+
 <body>
     <canvas id="grid-canvas"></canvas>
     <div class="navbar-wrapper">
@@ -2755,7 +3157,8 @@
             <!-- Floating Fragment 2: Successful Match -->
             <div class="fragment fragment-2" data-parallax="0.06">
                 <div class="frag-row">
-                    <div class="frag-icon" style="background: #E6F4EA; color: #137333;"><span class="material-symbols-outlined">storefront</span></div>
+                    <div class="frag-icon" style="background: #E6F4EA; color: #137333;"><span
+                            class="material-symbols-outlined">storefront</span></div>
                     <div class="frag-text">
                         <h4>AirCool Services</h4>
                         <p>Best Match found</p>
@@ -2770,7 +3173,8 @@
             <!-- Floating Fragment 3: Offer Alert -->
             <div class="fragment fragment-3" data-parallax="0.03">
                 <div class="frag-row">
-                    <div class="frag-icon" style="background: #FFF7E0; color: #B06000;"><span class="material-symbols-outlined">local_offer</span></div>
+                    <div class="frag-icon" style="background: #FFF7E0; color: #B06000;"><span
+                            class="material-symbols-outlined">local_offer</span></div>
                     <div class="frag-text">
                         <h4>New Offer Received</h4>
                         <p>₱1,400 · Instant Reply</p>
@@ -2781,7 +3185,8 @@
             <!-- Floating Fragment 4: Trust Badge -->
             <div class="fragment fragment-4" data-parallax="0.05">
                 <div class="frag-row">
-                    <div class="frag-icon" style="background: #FCE8E6; color: #C5221F;"><span class="material-symbols-outlined">favorite</span></div>
+                    <div class="frag-icon" style="background: #FCE8E6; color: #C5221F;"><span
+                            class="material-symbols-outlined">favorite</span></div>
                     <div class="frag-text">
                         <h4>10,000+ Happy Users</h4>
                         <p>Trust in PhiMart</p>
@@ -2791,15 +3196,17 @@
 
             <div class="hero-content fade-in-up">
                 <h1 class="hero-headline">Stop searching. <br>The right business <br>finds you.</h1>
-                <p class="hero-subheadline">The AI-powered marketplace where your needs aren't just posted—they're understood. Post once, receive top offers, choose your best fit.</p>
-                
+                <p class="hero-subheadline">The AI-powered marketplace where your needs aren't just posted—they're
+                    understood. Post once, receive top offers, choose your best fit.</p>
+
                 <div class="hero-buttons" style="justify-content: center;">
                     <button class="btn btn-primary btn-glow">Post Your Request — Free</button>
                     <button class="btn btn-secondary">Join as a Business</button>
                 </div>
-                
+
                 <p class="hero-supporting-text" style="justify-content: center;">
-                    <span class="material-symbols-outlined" style="font-size: 18px; color: var(--primary-color);">shield</span>
+                    <span class="material-symbols-outlined"
+                        style="font-size: 18px; color: var(--primary-color);">shield</span>
                     Privacy first · Secure messaging · Verified professionals
                 </p>
             </div>
@@ -2815,7 +3222,8 @@
                     Simple 3-step process
                 </div>
                 <h2 class="section-title">How PhiMart Works</h2>
-                <p class="section-subtitle">Post what you need, let AI do the matching, and choose the best offer — all in under a minute.</p>
+                <p class="section-subtitle">Post what you need, let AI do the matching, and choose the best offer — all
+                    in under a minute.</p>
             </div>
 
             <div class="steps-timeline">
@@ -2824,7 +3232,8 @@
                     <div class="step-text">
                         <div class="step-num">01</div>
                         <h3 class="step-h3">Post what you need</h3>
-                        <p class="step-desc">Describe the product or service you need in seconds. Our smart form helps you write the perfect request.</p>
+                        <p class="step-desc">Describe the product or service you need in seconds. Our smart form helps
+                            you write the perfect request.</p>
                     </div>
                     <div class="step-node">
                         <span class="material-symbols-outlined">edit_note</span>
@@ -2834,7 +3243,8 @@
                             <div class="mock-label">Your Request</div>
                             <div class="mock-input-row">
                                 <span class="material-symbols-outlined">auto_awesome</span>
-                                <span class="mock-input-text">Need aircon cleaning tomorrow in Davao. Budget ₱1,500.<span class="mock-typing-cursor"></span></span>
+                                <span class="mock-input-text">Need aircon cleaning tomorrow in Davao. Budget
+                                    ₱1,500.<span class="mock-typing-cursor"></span></span>
                             </div>
                             <div class="mock-tags">
                                 <span class="mock-tag">🏠 Home Service</span>
@@ -2850,7 +3260,8 @@
                     <div class="step-text">
                         <div class="step-num">02</div>
                         <h3 class="step-h3">AI finds the right businesses</h3>
-                        <p class="step-desc">Our AI understands your request and instantly notifies the most relevant local businesses who can help.</p>
+                        <p class="step-desc">Our AI understands your request and instantly notifies the most relevant
+                            local businesses who can help.</p>
                     </div>
                     <div class="step-node">
                         <span class="material-symbols-outlined">auto_awesome</span>
@@ -2886,7 +3297,8 @@
                     <div class="step-text">
                         <div class="step-num">03</div>
                         <h3 class="step-h3">Receive offers and choose</h3>
-                        <p class="step-desc">Businesses send their best offers directly to you. Compare prices, reviews, and pick the perfect match.</p>
+                        <p class="step-desc">Businesses send their best offers directly to you. Compare prices, reviews,
+                            and pick the perfect match.</p>
                     </div>
                     <div class="step-node">
                         <span class="material-symbols-outlined">checklist</span>
@@ -2895,7 +3307,8 @@
                         <div class="mock-offers">
                             <div class="mock-offer-card featured">
                                 <div class="mock-offer-left">
-                                    <div class="mock-offer-icon"><span class="material-symbols-outlined">ac_unit</span></div>
+                                    <div class="mock-offer-icon"><span class="material-symbols-outlined">ac_unit</span>
+                                    </div>
                                     <div>
                                         <div class="mock-offer-name">AirCool Services</div>
                                         <div class="mock-offer-detail">Aircon cleaning · ★ 4.9</div>
@@ -2908,7 +3321,8 @@
                             </div>
                             <div class="mock-offer-card">
                                 <div class="mock-offer-left">
-                                    <div class="mock-offer-icon"><span class="material-symbols-outlined">air</span></div>
+                                    <div class="mock-offer-icon"><span class="material-symbols-outlined">air</span>
+                                    </div>
                                     <div>
                                         <div class="mock-offer-name">FreshAir Technicians</div>
                                         <div class="mock-offer-detail">Full cleaning & checkup · ★ 4.7</div>
@@ -2921,7 +3335,8 @@
                             </div>
                             <div class="mock-offer-card">
                                 <div class="mock-offer-left">
-                                    <div class="mock-offer-icon"><span class="material-symbols-outlined">engineering</span></div>
+                                    <div class="mock-offer-icon"><span
+                                            class="material-symbols-outlined">engineering</span></div>
                                     <div>
                                         <div class="mock-offer-name">CoolFix Experts</div>
                                         <div class="mock-offer-detail">Same day service · ★ 4.5</div>
@@ -2955,22 +3370,26 @@
             <div class="ticker-row ticker-row-1">
                 <div class="ticker-card">
                     <div class="ticker-card-top">
-                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">ac_unit</span></div>
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined"
+                                style="font-size:18px;color:#5F6368;">ac_unit</span></div>
                         <div class="ticker-user-info">
                             <div class="ticker-username">Maria C.</div>
                             <div class="ticker-time">2 min ago</div>
                         </div>
                         <span class="ticker-category home">Home Service</span>
                     </div>
-                    <p class="ticker-text">Looking for aircon cleaning tomorrow. Budget around ₱1,500. Preferably morning schedule.</p>
+                    <p class="ticker-text">Looking for aircon cleaning tomorrow. Budget around ₱1,500. Preferably
+                        morning schedule.</p>
                     <div class="ticker-footer">
-                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao City</span>
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao
+                            City</span>
                         <span class="ticker-budget">₱1,500</span>
                     </div>
                 </div>
                 <div class="ticker-card">
                     <div class="ticker-card-top">
-                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">cake</span></div>
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined"
+                                style="font-size:18px;color:#5F6368;">cake</span></div>
                         <div class="ticker-user-info">
                             <div class="ticker-username">James R.</div>
                             <div class="ticker-time">8 min ago</div>
@@ -2979,13 +3398,15 @@
                     </div>
                     <p class="ticker-text">Need a birthday cake for tomorrow. Chocolate flavor, for 20 people.</p>
                     <div class="ticker-footer">
-                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao City</span>
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao
+                            City</span>
                         <span class="ticker-budget">₱1,200</span>
                     </div>
                 </div>
                 <div class="ticker-card">
                     <div class="ticker-card-top">
-                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">print</span></div>
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined"
+                                style="font-size:18px;color:#5F6368;">print</span></div>
                         <div class="ticker-user-info">
                             <div class="ticker-username">Alyssa M.</div>
                             <div class="ticker-time">22 min ago</div>
@@ -2994,44 +3415,52 @@
                     </div>
                     <p class="ticker-text">Need 100 shirts printed with custom logo for a company event next week.</p>
                     <div class="ticker-footer">
-                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao City</span>
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao
+                            City</span>
                         <span class="ticker-budget">₱8,000</span>
                     </div>
                 </div>
                 <div class="ticker-card">
                     <div class="ticker-card-top">
-                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">cleaning_services</span></div>
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined"
+                                style="font-size:18px;color:#5F6368;">cleaning_services</span></div>
                         <div class="ticker-user-info">
                             <div class="ticker-username">Carlo D.</div>
                             <div class="ticker-time">45 min ago</div>
                         </div>
                         <span class="ticker-category home">Home Service</span>
                     </div>
-                    <p class="ticker-text">Need deep cleaning for a 3-bedroom house this Saturday. Pet-friendly products preferred.</p>
+                    <p class="ticker-text">Need deep cleaning for a 3-bedroom house this Saturday. Pet-friendly products
+                        preferred.</p>
                     <div class="ticker-footer">
-                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Matina, Davao</span>
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Matina,
+                            Davao</span>
                         <span class="ticker-budget">₱2,500</span>
                     </div>
                 </div>
                 <!-- Duplicate for seamless loop -->
                 <div class="ticker-card">
                     <div class="ticker-card-top">
-                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">ac_unit</span></div>
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined"
+                                style="font-size:18px;color:#5F6368;">ac_unit</span></div>
                         <div class="ticker-user-info">
                             <div class="ticker-username">Maria C.</div>
                             <div class="ticker-time">2 min ago</div>
                         </div>
                         <span class="ticker-category home">Home Service</span>
                     </div>
-                    <p class="ticker-text">Looking for aircon cleaning tomorrow. Budget around ₱1,500. Preferably morning schedule.</p>
+                    <p class="ticker-text">Looking for aircon cleaning tomorrow. Budget around ₱1,500. Preferably
+                        morning schedule.</p>
                     <div class="ticker-footer">
-                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao City</span>
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao
+                            City</span>
                         <span class="ticker-budget">₱1,500</span>
                     </div>
                 </div>
                 <div class="ticker-card">
                     <div class="ticker-card-top">
-                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">cake</span></div>
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined"
+                                style="font-size:18px;color:#5F6368;">cake</span></div>
                         <div class="ticker-user-info">
                             <div class="ticker-username">James R.</div>
                             <div class="ticker-time">8 min ago</div>
@@ -3040,13 +3469,15 @@
                     </div>
                     <p class="ticker-text">Need a birthday cake for tomorrow. Chocolate flavor, for 20 people.</p>
                     <div class="ticker-footer">
-                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao City</span>
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao
+                            City</span>
                         <span class="ticker-budget">₱1,200</span>
                     </div>
                 </div>
                 <div class="ticker-card">
                     <div class="ticker-card-top">
-                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">print</span></div>
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined"
+                                style="font-size:18px;color:#5F6368;">print</span></div>
                         <div class="ticker-user-info">
                             <div class="ticker-username">Alyssa M.</div>
                             <div class="ticker-time">22 min ago</div>
@@ -3055,22 +3486,26 @@
                     </div>
                     <p class="ticker-text">Need 100 shirts printed with custom logo for a company event next week.</p>
                     <div class="ticker-footer">
-                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao City</span>
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao
+                            City</span>
                         <span class="ticker-budget">₱8,000</span>
                     </div>
                 </div>
                 <div class="ticker-card">
                     <div class="ticker-card-top">
-                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">cleaning_services</span></div>
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined"
+                                style="font-size:18px;color:#5F6368;">cleaning_services</span></div>
                         <div class="ticker-user-info">
                             <div class="ticker-username">Carlo D.</div>
                             <div class="ticker-time">45 min ago</div>
                         </div>
                         <span class="ticker-category home">Home Service</span>
                     </div>
-                    <p class="ticker-text">Need deep cleaning for a 3-bedroom house this Saturday. Pet-friendly products preferred.</p>
+                    <p class="ticker-text">Need deep cleaning for a 3-bedroom house this Saturday. Pet-friendly products
+                        preferred.</p>
                     <div class="ticker-footer">
-                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Matina, Davao</span>
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Matina,
+                            Davao</span>
                         <span class="ticker-budget">₱2,500</span>
                     </div>
                 </div>
@@ -3080,37 +3515,44 @@
             <div class="ticker-row ticker-row-2">
                 <div class="ticker-card">
                     <div class="ticker-card-top">
-                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">restaurant</span></div>
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined"
+                                style="font-size:18px;color:#5F6368;">restaurant</span></div>
                         <div class="ticker-user-info">
                             <div class="ticker-username">Sophie L.</div>
                             <div class="ticker-time">15 min ago</div>
                         </div>
                         <span class="ticker-category food">Food</span>
                     </div>
-                    <p class="ticker-text">Looking for catering service for 40 people this weekend. Filipino menu preferred.</p>
+                    <p class="ticker-text">Looking for catering service for 40 people this weekend. Filipino menu
+                        preferred.</p>
                     <div class="ticker-footer">
-                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Tagum City</span>
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Tagum
+                            City</span>
                         <span class="ticker-budget">₱12,000</span>
                     </div>
                 </div>
                 <div class="ticker-card">
                     <div class="ticker-card-top">
-                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">plumbing</span></div>
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined"
+                                style="font-size:18px;color:#5F6368;">plumbing</span></div>
                         <div class="ticker-user-info">
                             <div class="ticker-username">Rico T.</div>
                             <div class="ticker-time">35 min ago</div>
                         </div>
                         <span class="ticker-category home">Home Service</span>
                     </div>
-                    <p class="ticker-text">Looking for a plumber near Obrero today. Leaking faucet needs urgent fixing.</p>
+                    <p class="ticker-text">Looking for a plumber near Obrero today. Leaking faucet needs urgent fixing.
+                    </p>
                     <div class="ticker-footer">
-                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Obrero, Davao</span>
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Obrero,
+                            Davao</span>
                         <span class="ticker-budget">₱800</span>
                     </div>
                 </div>
                 <div class="ticker-card">
                     <div class="ticker-card-top">
-                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">local_laundry_service</span></div>
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined"
+                                style="font-size:18px;color:#5F6368;">local_laundry_service</span></div>
                         <div class="ticker-user-info">
                             <div class="ticker-username">Ana G.</div>
                             <div class="ticker-time">1 hr ago</div>
@@ -3119,59 +3561,70 @@
                     </div>
                     <p class="ticker-text">Need someone to repair my washing machine. Samsung model, won't spin.</p>
                     <div class="ticker-footer">
-                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Buhangin, Davao</span>
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span>
+                            Buhangin, Davao</span>
                         <span class="ticker-budget">₱1,000</span>
                     </div>
                 </div>
                 <div class="ticker-card">
                     <div class="ticker-card-top">
-                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">photo_camera</span></div>
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined"
+                                style="font-size:18px;color:#5F6368;">photo_camera</span></div>
                         <div class="ticker-user-info">
                             <div class="ticker-username">Bea S.</div>
                             <div class="ticker-time">2 hrs ago</div>
                         </div>
                         <span class="ticker-category print">Creative</span>
                     </div>
-                    <p class="ticker-text">Looking for a photographer for a small product shoot. About 20 items, studio setup.</p>
+                    <p class="ticker-text">Looking for a photographer for a small product shoot. About 20 items, studio
+                        setup.</p>
                     <div class="ticker-footer">
-                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao City</span>
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao
+                            City</span>
                         <span class="ticker-budget">₱3,000</span>
                     </div>
                 </div>
                 <!-- Duplicate for seamless loop -->
                 <div class="ticker-card">
                     <div class="ticker-card-top">
-                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">restaurant</span></div>
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined"
+                                style="font-size:18px;color:#5F6368;">restaurant</span></div>
                         <div class="ticker-user-info">
                             <div class="ticker-username">Sophie L.</div>
                             <div class="ticker-time">15 min ago</div>
                         </div>
                         <span class="ticker-category food">Food</span>
                     </div>
-                    <p class="ticker-text">Looking for catering service for 40 people this weekend. Filipino menu preferred.</p>
+                    <p class="ticker-text">Looking for catering service for 40 people this weekend. Filipino menu
+                        preferred.</p>
                     <div class="ticker-footer">
-                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Tagum City</span>
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Tagum
+                            City</span>
                         <span class="ticker-budget">₱12,000</span>
                     </div>
                 </div>
                 <div class="ticker-card">
                     <div class="ticker-card-top">
-                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">plumbing</span></div>
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined"
+                                style="font-size:18px;color:#5F6368;">plumbing</span></div>
                         <div class="ticker-user-info">
                             <div class="ticker-username">Rico T.</div>
                             <div class="ticker-time">35 min ago</div>
                         </div>
                         <span class="ticker-category home">Home Service</span>
                     </div>
-                    <p class="ticker-text">Looking for a plumber near Obrero today. Leaking faucet needs urgent fixing.</p>
+                    <p class="ticker-text">Looking for a plumber near Obrero today. Leaking faucet needs urgent fixing.
+                    </p>
                     <div class="ticker-footer">
-                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Obrero, Davao</span>
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Obrero,
+                            Davao</span>
                         <span class="ticker-budget">₱800</span>
                     </div>
                 </div>
                 <div class="ticker-card">
                     <div class="ticker-card-top">
-                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">local_laundry_service</span></div>
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined"
+                                style="font-size:18px;color:#5F6368;">local_laundry_service</span></div>
                         <div class="ticker-user-info">
                             <div class="ticker-username">Ana G.</div>
                             <div class="ticker-time">1 hr ago</div>
@@ -3180,22 +3633,26 @@
                     </div>
                     <p class="ticker-text">Need someone to repair my washing machine. Samsung model, won't spin.</p>
                     <div class="ticker-footer">
-                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Buhangin, Davao</span>
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span>
+                            Buhangin, Davao</span>
                         <span class="ticker-budget">₱1,000</span>
                     </div>
                 </div>
                 <div class="ticker-card">
                     <div class="ticker-card-top">
-                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">photo_camera</span></div>
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined"
+                                style="font-size:18px;color:#5F6368;">photo_camera</span></div>
                         <div class="ticker-user-info">
                             <div class="ticker-username">Bea S.</div>
                             <div class="ticker-time">2 hrs ago</div>
                         </div>
                         <span class="ticker-category print">Creative</span>
                     </div>
-                    <p class="ticker-text">Looking for a photographer for a small product shoot. About 20 items, studio setup.</p>
+                    <p class="ticker-text">Looking for a photographer for a small product shoot. About 20 items, studio
+                        setup.</p>
                     <div class="ticker-footer">
-                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao City</span>
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao
+                            City</span>
                         <span class="ticker-budget">₱3,000</span>
                     </div>
                 </div>
@@ -3218,7 +3675,8 @@
                         <span class="material-symbols-outlined">campaign</span>
                     </div>
                     <h3>Post once. Get multiple offers.</h3>
-                    <p>Instead of searching and messaging many businesses, post your request once and let businesses come to you with their best offers.</p>
+                    <p>Instead of searching and messaging many businesses, post your request once and let businesses
+                        come to you with their best offers.</p>
                 </div>
 
                 <div class="why-step step-1">
@@ -3226,7 +3684,8 @@
                         <span class="material-symbols-outlined">schedule</span>
                     </div>
                     <h3>Save hours of searching.</h3>
-                    <p>No more browsing dozens of pages. PhiMart instantly connects you with businesses ready to help.</p>
+                    <p>No more browsing dozens of pages. PhiMart instantly connects you with businesses ready to help.
+                    </p>
                 </div>
 
                 <div class="why-step step-2">
@@ -3242,7 +3701,8 @@
                         <span class="material-symbols-outlined">auto_awesome</span>
                     </div>
                     <h3>Powered by smart AI.</h3>
-                    <p>Our AI understands your request and matches you with the most relevant businesses near you — automatically and instantly.</p>
+                    <p>Our AI understands your request and matches you with the most relevant businesses near you —
+                        automatically and instantly.</p>
                 </div>
             </div>
 
@@ -3255,27 +3715,40 @@
                             <svg class="viz-1-lines" viewBox="0 0 500 600" preserveAspectRatio="none">
                                 <path class="viz-1-line" d="M 125 300 C 200 300, 200 120, 275 120" />
                                 <path class="viz-1-line" d="M 125 300 L 275 270" style="animation-delay: 0.5s;" />
-                                <path class="viz-1-line" d="M 125 300 C 200 300, 200 420, 275 420" style="animation-delay: 1s;" />
+                                <path class="viz-1-line" d="M 125 300 C 200 300, 200 420, 275 420"
+                                    style="animation-delay: 1s;" />
                             </svg>
                             <div class="viz-1-center">
                                 <span class="material-symbols-outlined">person</span>
                             </div>
                             <div class="viz-1-target t1">
                                 <div class="viz-target-header">
-                                    <div class="viz-target-avatar"><span class="material-symbols-outlined">storefront</span></div>
-                                    <div class="viz-target-bars"><div></div><div></div></div>
+                                    <div class="viz-target-avatar"><span
+                                            class="material-symbols-outlined">storefront</span></div>
+                                    <div class="viz-target-bars">
+                                        <div></div>
+                                        <div></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="viz-1-target t2">
                                 <div class="viz-target-header">
-                                    <div class="viz-target-avatar"><span class="material-symbols-outlined">handyman</span></div>
-                                    <div class="viz-target-bars"><div></div><div></div></div>
+                                    <div class="viz-target-avatar"><span
+                                            class="material-symbols-outlined">handyman</span></div>
+                                    <div class="viz-target-bars">
+                                        <div></div>
+                                        <div></div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="viz-1-target t3">
                                 <div class="viz-target-header">
-                                    <div class="viz-target-avatar"><span class="material-symbols-outlined">restaurant</span></div>
-                                    <div class="viz-target-bars"><div></div><div></div></div>
+                                    <div class="viz-target-avatar"><span
+                                            class="material-symbols-outlined">restaurant</span></div>
+                                    <div class="viz-target-bars">
+                                        <div></div>
+                                        <div></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -3331,7 +3804,7 @@
                             <div class="ai-ring ai-ring-1"></div>
                             <div class="ai-ring ai-ring-2"></div>
                             <div class="ai-ring ai-ring-3"></div>
-                            
+
                             <div class="ai-float"><span class="material-symbols-outlined">camera_alt</span></div>
                             <div class="ai-float"><span class="material-symbols-outlined">ac_unit</span></div>
                             <div class="ai-float"><span class="material-symbols-outlined">cleaning_services</span></div>
@@ -3345,567 +3818,580 @@
                 </div>
             </div>
         </div>
-    <!-- BUSINESS PREMIUM — DASHBOARD MOCKUP SECTION -->
-    <section class="business-premium">
-        <div class="business-inner">
-            <div class="biz-text-col">
-                <div class="section-badge">
-                    <span class="material-symbols-outlined" style="font-size: 16px;">business_center</span>
-                    For Service Providers
+        <!-- BUSINESS PREMIUM — DASHBOARD MOCKUP SECTION -->
+        <section class="business-premium">
+            <div class="business-inner">
+                <div class="biz-text-col">
+                    <div class="section-badge">
+                        <span class="material-symbols-outlined" style="font-size: 16px;">business_center</span>
+                        For Service Providers
+                    </div>
+                    <h2>Built for Businesses That Want More Customers</h2>
+                    <p class="subtitle">Stop waiting for customers to find you. Receive real requests from people
+                        actively looking for your service.</p>
+
+                    <div class="biz-features">
+                        <div class="biz-feature fade-in-up">
+                            <div class="biz-feature-icon">
+                                <span class="material-symbols-outlined">notifications_active</span>
+                            </div>
+                            <div>
+                                <h4>Receive real customer requests</h4>
+                                <p>Customers post exactly what they need. Get notified instantly when a request matches
+                                    your service.</p>
+                            </div>
+                        </div>
+
+                        <div class="biz-feature fade-in-up">
+                            <div class="biz-feature-icon">
+                                <span class="material-symbols-outlined">target</span>
+                            </div>
+                            <div>
+                                <h4>Better leads, not random traffic</h4>
+                                <p>Only receive requests relevant to your business so you spend less time chasing
+                                    customers.</p>
+                            </div>
+                        </div>
+
+                        <div class="biz-feature fade-in-up">
+                            <div class="biz-feature-icon">
+                                <span class="material-symbols-outlined">auto_awesome</span>
+                            </div>
+                            <div>
+                                <h4>Respond faster with AI</h4>
+                                <p>Use AI suggested responses to quickly send professional offers and stand out.</p>
+                            </div>
+                        </div>
+
+                        <div class="biz-feature fade-in-up">
+                            <div class="biz-feature-icon">
+                                <span class="material-symbols-outlined">trending_up</span>
+                            </div>
+                            <div>
+                                <h4>Win more customers</h4>
+                                <p>Turn requests into real paying clients and grow your business with a steady flow of
+                                    leads.</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h2>Built for Businesses That Want More Customers</h2>
-                <p class="subtitle">Stop waiting for customers to find you. Receive real requests from people actively looking for your service.</p>
-                
-                <div class="biz-features">
-                    <div class="biz-feature fade-in-up">
-                        <div class="biz-feature-icon">
-                            <span class="material-symbols-outlined">notifications_active</span>
+
+                <div class="biz-visual-col">
+                    <div class="biz-glow"></div>
+                    <div class="dashboard-mockup">
+                        <div class="db-header">
+                            <div class="db-title-wrap">
+                                <span class="db-dot"></span>
+                                <span class="db-title">Incoming Requests</span>
+                            </div>
+                            <div class="material-symbols-outlined" style="color: #9AA0A6; font-size: 20px;">more_horiz
+                            </div>
                         </div>
-                        <div>
-                            <h4>Receive real customer requests</h4>
-                            <p>Customers post exactly what they need. Get notified instantly when a request matches your service.</p>
+                        <div class="db-content">
+                            <div class="db-requests-container" id="db-requests">
+                                <!-- Live requests will be injected here by JS -->
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+        <!-- AI MATCHING SECTION -->
+        <section class="ai-matching">
+            <div class="ai-matching-inner">
+                <div class="section-badge" style="margin: 0 auto 24px;">
+                    <span class="material-symbols-outlined" style="font-size: 16px;">psychology</span>
+                    Futuristic Matching
+                </div>
+                <h2>Smart Matching Powered by AI</h2>
+                <p class="subtitle">PhiMart uses intelligent technology to connect the right customers with the right
+                    businesses faster.</p>
 
-                    <div class="biz-feature fade-in-up">
-                        <div class="biz-feature-icon">
-                            <span class="material-symbols-outlined">target</span>
-                        </div>
-                        <div>
-                            <h4>Better leads, not random traffic</h4>
-                            <p>Only receive requests relevant to your business so you spend less time chasing customers.</p>
-                        </div>
-                    </div>
+                <div class="ai-network-container" id="ai-network">
+                    <!-- SVG lines for connection -->
+                    <svg class="ai-svg-overlay" id="ai-svg">
+                        <path class="network-line l1" id="line1" d=""></path>
+                        <path class="network-line l2" id="line2" d=""></path>
+                        <path class="network-line l3" id="line3" d=""></path>
+                    </svg>
 
-                    <div class="biz-feature fade-in-up">
-                        <div class="biz-feature-icon">
+                    <div class="ai-core-card" id="ai-request-card">
+                        <div class="ai-core-header">
                             <span class="material-symbols-outlined">auto_awesome</span>
+                            CUSTOMER REQUEST
                         </div>
-                        <div>
-                            <h4>Respond faster with AI</h4>
-                            <p>Use AI suggested responses to quickly send professional offers and stand out.</p>
-                        </div>
+                        <p class="ai-core-text">"Need aircon cleaning tomorrow in Davao. Budget 1500."</p>
                     </div>
 
-                    <div class="biz-feature fade-in-up">
-                        <div class="biz-feature-icon">
-                            <span class="material-symbols-outlined">trending_up</span>
-                        </div>
-                        <div>
-                            <h4>Win more customers</h4>
-                            <p>Turn requests into real paying clients and grow your business with a steady flow of leads.</p>
-                        </div>
+                    <div class="biz-match-card m1" id="biz1">
+                        <h4>CoolAir Services</h4>
+                        <p>Aircon cleaning package</p>
+                        <span class="match-badge">98% Match</span>
+                    </div>
+
+                    <div class="biz-match-card m2" id="biz2">
+                        <h4>FreshAir Experts</h4>
+                        <p>Full cleaning service</p>
+                        <span class="match-badge">95% Match</span>
+                    </div>
+
+                    <div class="biz-match-card m3" id="biz3">
+                        <h4>QuickCool Technicians</h4>
+                        <p>Same day service</p>
+                        <span class="match-badge">92% Match</span>
+                    </div>
+                </div>
+
+                <div class="ai-features-grid">
+                    <div class="ai-feature-item fade-in-up">
+                        <h4>Understands your request</h4>
+                        <p>Our AI analyzes your request even if it is short or unclear, extracting intent and
+                            requirements.</p>
+                    </div>
+                    <div class="ai-feature-item fade-in-up">
+                        <h4>Finds the best businesses</h4>
+                        <p>Businesses are matched based on service type, location, availability, and past quality
+                            scores.</p>
+                    </div>
+                    <div class="ai-feature-item fade-in-up">
+                        <h4>Smarter offers</h4>
+                        <p>Businesses can respond faster using AI assisted replies that suggest professional terms.</p>
+                    </div>
+                    <div class="ai-feature-item fade-in-up">
+                        <h4>Better results</h4>
+                        <p>Customers receive more relevant offers and better service options tailored to their exact
+                            needs.</p>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="biz-visual-col">
-                <div class="biz-glow"></div>
-                <div class="dashboard-mockup">
-                    <div class="db-header">
-                        <div class="db-title-wrap">
-                            <span class="db-dot"></span>
-                            <span class="db-title">Incoming Requests</span>
+        <!-- EARLY ACCESS SECTION -->
+        <section class="early-access">
+            <div class="orbital-container" id="orbital-root">
+                <div class="orbital-path path-1"></div>
+                <div class="orbital-path path-2"></div>
+                <div class="orbital-path path-3"></div>
+                <!-- Icons injected by JS -->
+            </div>
+            <div class="early-access-inner">
+                <div class="section-badge"
+                    style="margin: 0 auto 32px; background: rgba(0,0,0,0.03); color: var(--text-secondary);">
+                    <span class="material-symbols-outlined" style="font-size: 16px;">explore</span>
+                    The Ecosystem
+                </div>
+                <h2>Find your <br><span class="cycling-word" id="cycling-text">service</span></h2>
+                <p class="subtitle" style="max-width: 500px; font-size: 1.125rem;">PhiMart connects you with the right
+                    local professionals instantly.</p>
+
+                <div class="glass-cta-container fade-in-up"
+                    style="background: rgba(255,255,255,0.8); border: 1px solid #E8EAED;">
+                    <div class="early-access-buttons">
+                        <button class="btn btn-primary btn-glow">Get Started</button>
+                        <button class="btn btn-secondary">Explore Services</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3-STEPS SECTION -->
+        <section class="simple-steps">
+            <div class="simple-steps-inner">
+                <h2 class="fade-in-up">Start in minutes, <br>not days.</h2>
+                <div class="steps-grid">
+                    <div class="step-card fade-in-up">
+                        <div class="step-bg-num">01</div>
+                        <div class="step-icon-box">
+                            <span class="material-symbols-outlined" style="font-size: 32px;">edit_note</span>
                         </div>
-                        <div class="material-symbols-outlined" style="color: #9AA0A6; font-size: 20px;">more_horiz</div>
+                        <h4>Post what you need</h4>
+                        <p>Describe your project in a few words. Our AI parses the details for accuracy.</p>
                     </div>
-                    <div class="db-content">
-                        <div class="db-requests-container" id="db-requests">
-                            <!-- Live requests will be injected here by JS -->
+                    <div class="step-card fade-in-up" style="animation-delay: 0.1s;">
+                        <div class="step-bg-num">02</div>
+                        <div class="step-icon-box">
+                            <span class="material-symbols-outlined" style="font-size: 32px;">bolt</span>
+                        </div>
+                        <h4>Get fast offers</h4>
+                        <p>Verified local businesses are notified instantly to send their best competitive quotes.</p>
+                    </div>
+                    <div class="step-card fade-in-up" style="animation-delay: 0.2s;">
+                        <div class="step-bg-num">03</div>
+                        <div class="step-icon-box">
+                            <span class="material-symbols-outlined" style="font-size: 32px;">check_circle</span>
+                        </div>
+                        <h4>Choose & Connect</h4>
+                        <p>Compare ratings, reviews, and prices to pick the perfect pro for your job.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DUAL BENEFITS SECTION -->
+        <section class="dual-benefits">
+            <div class="dual-benefits-inner">
+                <div class="perspective-badge">
+                    <span class="material-symbols-outlined">sync_alt</span>
+                </div>
+
+                <div class="benefit-panel panel-customer fade-in-up">
+                    <div class="panel-content">
+                        <div class="panel-tag">
+                            <span class="material-symbols-outlined" style="font-size: 18px;">person</span>
+                            For Customers
+                        </div>
+                        <h3>Your service, <br>your terms.</h3>
+                        <div class="benefit-grid">
+                            <div class="benefit-box">
+                                <span class="material-symbols-outlined">speed</span>
+                                <p>Post requests <br>instantly</p>
+                            </div>
+                            <div class="benefit-box">
+                                <span class="material-symbols-outlined">layers</span>
+                                <p>Receive multiple <br>offers</p>
+                            </div>
+                            <div class="benefit-box">
+                                <span class="material-symbols-outlined">payments</span>
+                                <p>Compare prices <br>easily</p>
+                            </div>
+                            <div class="benefit-box">
+                                <span class="material-symbols-outlined">verified</span>
+                                <p>Find trusted <br>pros</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
-    <!-- AI MATCHING SECTION -->
-    <section class="ai-matching">
-        <div class="ai-matching-inner">
-            <div class="section-badge" style="margin: 0 auto 24px;">
-                <span class="material-symbols-outlined" style="font-size: 16px;">psychology</span>
-                Futuristic Matching
-            </div>
-            <h2>Smart Matching Powered by AI</h2>
-            <p class="subtitle">PhiMart uses intelligent technology to connect the right customers with the right businesses faster.</p>
 
-            <div class="ai-network-container" id="ai-network">
-                <!-- SVG lines for connection -->
-                <svg class="ai-svg-overlay" id="ai-svg">
-                    <path class="network-line l1" id="line1" d=""></path>
-                    <path class="network-line l2" id="line2" d=""></path>
-                    <path class="network-line l3" id="line3" d=""></path>
-                </svg>
-
-                <div class="ai-core-card" id="ai-request-card">
-                    <div class="ai-core-header">
-                        <span class="material-symbols-outlined">auto_awesome</span>
-                        CUSTOMER REQUEST
-                    </div>
-                    <p class="ai-core-text">"Need aircon cleaning tomorrow in Davao. Budget 1500."</p>
-                </div>
-
-                <div class="biz-match-card m1" id="biz1">
-                    <h4>CoolAir Services</h4>
-                    <p>Aircon cleaning package</p>
-                    <span class="match-badge">98% Match</span>
-                </div>
-
-                <div class="biz-match-card m2" id="biz2">
-                    <h4>FreshAir Experts</h4>
-                    <p>Full cleaning service</p>
-                    <span class="match-badge">95% Match</span>
-                </div>
-
-                <div class="biz-match-card m3" id="biz3">
-                    <h4>QuickCool Technicians</h4>
-                    <p>Same day service</p>
-                    <span class="match-badge">92% Match</span>
-                </div>
-            </div>
-
-            <div class="ai-features-grid">
-                <div class="ai-feature-item fade-in-up">
-                    <h4>Understands your request</h4>
-                    <p>Our AI analyzes your request even if it is short or unclear, extracting intent and requirements.</p>
-                </div>
-                <div class="ai-feature-item fade-in-up">
-                    <h4>Finds the best businesses</h4>
-                    <p>Businesses are matched based on service type, location, availability, and past quality scores.</p>
-                </div>
-                <div class="ai-feature-item fade-in-up">
-                    <h4>Smarter offers</h4>
-                    <p>Businesses can respond faster using AI assisted replies that suggest professional terms.</p>
-                </div>
-                <div class="ai-feature-item fade-in-up">
-                    <h4>Better results</h4>
-                    <p>Customers receive more relevant offers and better service options tailored to their exact needs.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- EARLY ACCESS SECTION -->
-    <section class="early-access">
-        <div class="orbital-container" id="orbital-root">
-            <div class="orbital-path path-1"></div>
-            <div class="orbital-path path-2"></div>
-            <div class="orbital-path path-3"></div>
-            <!-- Icons injected by JS -->
-        </div>
-        <div class="early-access-inner">
-            <div class="section-badge" style="margin: 0 auto 32px; background: rgba(0,0,0,0.03); color: var(--text-secondary);">
-                <span class="material-symbols-outlined" style="font-size: 16px;">explore</span>
-                The Ecosystem
-            </div>
-            <h2>Find your <br><span class="cycling-word" id="cycling-text">service</span></h2>
-            <p class="subtitle" style="max-width: 500px; font-size: 1.125rem;">PhiMart connects you with the right local professionals instantly.</p>
-            
-            <div class="glass-cta-container fade-in-up" style="background: rgba(255,255,255,0.8); border: 1px solid #E8EAED;">
-                <div class="early-access-buttons">
-                    <button class="btn btn-primary btn-glow">Get Started</button>
-                    <button class="btn btn-secondary">Explore Services</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 3-STEPS SECTION -->
-    <section class="simple-steps">
-        <div class="simple-steps-inner">
-            <h2 class="fade-in-up">Start in minutes, <br>not days.</h2>
-            <div class="steps-grid">
-                <div class="step-card fade-in-up">
-                    <div class="step-bg-num">01</div>
-                    <div class="step-icon-box">
-                        <span class="material-symbols-outlined" style="font-size: 32px;">edit_note</span>
-                    </div>
-                    <h4>Post what you need</h4>
-                    <p>Describe your project in a few words. Our AI parses the details for accuracy.</p>
-                </div>
-                <div class="step-card fade-in-up" style="animation-delay: 0.1s;">
-                    <div class="step-bg-num">02</div>
-                    <div class="step-icon-box">
-                        <span class="material-symbols-outlined" style="font-size: 32px;">bolt</span>
-                    </div>
-                    <h4>Get fast offers</h4>
-                    <p>Verified local businesses are notified instantly to send their best competitive quotes.</p>
-                </div>
-                <div class="step-card fade-in-up" style="animation-delay: 0.2s;">
-                    <div class="step-bg-num">03</div>
-                    <div class="step-icon-box">
-                        <span class="material-symbols-outlined" style="font-size: 32px;">check_circle</span>
-                    </div>
-                    <h4>Choose & Connect</h4>
-                    <p>Compare ratings, reviews, and prices to pick the perfect pro for your job.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- DUAL BENEFITS SECTION -->
-    <section class="dual-benefits">
-        <div class="dual-benefits-inner">
-            <div class="perspective-badge">
-                <span class="material-symbols-outlined">sync_alt</span>
-            </div>
-            
-            <div class="benefit-panel panel-customer fade-in-up">
-                <div class="panel-content">
-                    <div class="panel-tag">
-                        <span class="material-symbols-outlined" style="font-size: 18px;">person</span>
-                        For Customers
-                    </div>
-                    <h3>Your service, <br>your terms.</h3>
-                    <div class="benefit-grid">
-                        <div class="benefit-box">
-                            <span class="material-symbols-outlined">speed</span>
-                            <p>Post requests <br>instantly</p>
+                <div class="benefit-panel panel-business fade-in-up" style="animation-delay: 0.1s;">
+                    <div class="panel-content">
+                        <div class="panel-tag">
+                            <span class="material-symbols-outlined" style="font-size: 18px;">storefront</span>
+                            For Businesses
                         </div>
-                        <div class="benefit-box">
-                            <span class="material-symbols-outlined">layers</span>
-                            <p>Receive multiple <br>offers</p>
-                        </div>
-                        <div class="benefit-box">
-                            <span class="material-symbols-outlined">payments</span>
-                            <p>Compare prices <br>easily</p>
-                        </div>
-                        <div class="benefit-box">
-                            <span class="material-symbols-outlined">verified</span>
-                            <p>Find trusted <br>pros</p>
+                        <h3>Growth on <br>autopilot.</h3>
+                        <div class="benefit-grid">
+                            <div class="benefit-box">
+                                <span class="material-symbols-outlined">notifications_active</span>
+                                <p>Real-time <br>leads</p>
+                            </div>
+                            <div class="benefit-box">
+                                <span class="material-symbols-outlined">auto_awesome</span>
+                                <p>Respond <br>faster with AI</p>
+                            </div>
+                            <div class="benefit-box">
+                                <span class="material-symbols-outlined">trending_up</span>
+                                <p>Win more <br>customers</p>
+                            </div>
+                            <div class="benefit-box">
+                                <span class="material-symbols-outlined">ads_click</span>
+                                <p>No expensive <br>ads needed</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="benefit-panel panel-business fade-in-up" style="animation-delay: 0.1s;">
-                <div class="panel-content">
-                    <div class="panel-tag">
-                        <span class="material-symbols-outlined" style="font-size: 18px;">storefront</span>
-                        For Businesses
-                    </div>
-                    <h3>Growth on <br>autopilot.</h3>
-                    <div class="benefit-grid">
-                        <div class="benefit-box">
-                            <span class="material-symbols-outlined">notifications_active</span>
-                            <p>Real-time <br>leads</p>
-                        </div>
-                        <div class="benefit-box">
-                            <span class="material-symbols-outlined">auto_awesome</span>
-                            <p>Respond <br>faster with AI</p>
-                        </div>
-                        <div class="benefit-box">
-                            <span class="material-symbols-outlined">trending_up</span>
-                            <p>Win more <br>customers</p>
-                        </div>
-                        <div class="benefit-box">
-                            <span class="material-symbols-outlined">ads_click</span>
-                            <p>No expensive <br>ads needed</p>
-                        </div>
+        <!-- FINAL CTA SECTION: DEPTH GLOW -->
+        <section class="final-cta">
+            <div class="cta-glow cta-glow-1"></div>
+            <div class="cta-glow cta-glow-2"></div>
+
+            <!-- Floating Accents (Now at section level to stay in corners) -->
+            <div class="cta-accent accent-1 fade-in-up">
+                <span class="material-symbols-outlined" style="color: #34A853;">verified</span>
+                <span>1,200+ Verified Pros</span>
+            </div>
+            <div class="cta-accent accent-2 fade-in-up" style="animation-delay: -2s;">
+                <span class="material-symbols-outlined" style="color: #4285F4;">bolt</span>
+                <span>AI-Powered Matching</span>
+            </div>
+
+            <div class="final-cta-inner">
+                <div class="cta-glass-card fade-in-up">
+                    <h2>Ready to find what <br>you need faster?</h2>
+                    <p class="subtitle">Join thousands of customers and businesses connecting smarter on PhiMart.</p>
+                    <div class="hero-buttons" style="justify-content: center;">
+                        <button class="btn btn-primary btn-glow">Post Your Request</button>
+                        <button class="btn btn-secondary">Join as a Business</button>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- FINAL CTA SECTION: DEPTH GLOW -->
-    <section class="final-cta">
-        <div class="cta-glow cta-glow-1"></div>
-        <div class="cta-glow cta-glow-2"></div>
-        
-        <!-- Floating Accents (Now at section level to stay in corners) -->
-        <div class="cta-accent accent-1 fade-in-up">
-            <span class="material-symbols-outlined" style="color: #34A853;">verified</span>
-            <span>1,200+ Verified Pros</span>
-        </div>
-        <div class="cta-accent accent-2 fade-in-up" style="animation-delay: -2s;">
-            <span class="material-symbols-outlined" style="color: #4285F4;">bolt</span>
-            <span>AI-Powered Matching</span>
-        </div>
-        
-        <div class="final-cta-inner">
-            <div class="cta-glass-card fade-in-up">
-                <h2>Ready to find what <br>you need faster?</h2>
-                <p class="subtitle">Join thousands of customers and businesses connecting smarter on PhiMart.</p>
-                <div class="hero-buttons" style="justify-content: center;">
-                    <button class="btn btn-primary btn-glow">Post Your Request</button>
-                    <button class="btn btn-secondary">Join as a Business</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-inner">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <a href="#" class="nav-logo" style="margin-bottom: 24px;">
-                        <span class="material-symbols-outlined logo-icon">blur_on</span>
-                        PhiMart
-                    </a>
-                    <p>PhiMart connects customers with top-rated local businesses through intelligent request matching and AI-powered tools.</p>
-                </div>
-                <div class="footer-col">
-                    <h5>Product</h5>
-                    <div class="footer-links">
-                        <a href="#">How It Works</a>
-                        <a href="#">Features</a>
-                        <a href="#">Pricing</a>
-                        <a href="#">Success Stories</a>
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-inner">
+                <div class="footer-top">
+                    <div class="footer-brand">
+                        <a href="#" class="nav-logo" style="margin-bottom: 24px;">
+                            <span class="material-symbols-outlined logo-icon">blur_on</span>
+                            PhiMart
+                        </a>
+                        <p>PhiMart connects customers with top-rated local businesses through intelligent request
+                            matching and AI-powered tools.</p>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Product</h5>
+                        <div class="footer-links">
+                            <a href="#">How It Works</a>
+                            <a href="#">Features</a>
+                            <a href="#">Pricing</a>
+                            <a href="#">Success Stories</a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Company</h5>
+                        <div class="footer-links">
+                            <a href="#">About Us</a>
+                            <a href="#">Contact</a>
+                            <a href="#">Careers</a>
+                            <a href="#">Blog</a>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h5>Legal</h5>
+                        <div class="footer-links">
+                            <a href="#">Privacy Policy</a>
+                            <a href="#">Terms of Service</a>
+                            <a href="#">Cookie Policy</a>
+                        </div>
                     </div>
                 </div>
-                <div class="footer-col">
-                    <h5>Company</h5>
-                    <div class="footer-links">
-                        <a href="#">About Us</a>
-                        <a href="#">Contact</a>
-                        <a href="#">Careers</a>
-                        <a href="#">Blog</a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h5>Legal</h5>
-                    <div class="footer-links">
-                        <a href="#">Privacy Policy</a>
-                        <a href="#">Terms of Service</a>
-                        <a href="#">Cookie Policy</a>
+                <div class="footer-bottom">
+                    <p>© 2026 PhiMart. All rights reserved.</p>
+                    <div class="social-links">
+                        <!-- Placeholder for social links -->
                     </div>
                 </div>
             </div>
-            <div class="footer-bottom">
-                <p>© 2026 PhiMart. All rights reserved.</p>
-                <div class="social-links">
-                    <!-- Placeholder for social links -->
-                </div>
-            </div>
-        </div>
-    </footer>
+        </footer>
 
 
-    <script>
-        // ===== Interactive Dot-Grid with Gravitational Warp =====
-        const canvas = document.getElementById('grid-canvas');
-        const ctx = canvas.getContext('2d');
+        <script>
+            // ===== Interactive Dot-Grid with Gravitational Warp =====
+            const canvas = document.getElementById('grid-canvas');
+            const ctx = canvas.getContext('2d');
 
-        let W, H;
-        const SPACING = 40;       // Grid spacing in px
-        const DOT_RADIUS = 1.5;
-        const INFLUENCE = 160;    // Mouse influence radius
-        const STRENGTH = 28;      // How far dots push away
-        const LINE_DIST = 55;     // Max distance to draw connecting lines
-        let dots = [];
-        let mouse = { x: -1000, y: -1000 };
-        let smoothMouse = { x: -1000, y: -1000 };
+            let W, H;
+            const SPACING = 40;       // Grid spacing in px
+            const DOT_RADIUS = 1.5;
+            const INFLUENCE = 160;    // Mouse influence radius
+            const STRENGTH = 28;      // How far dots push away
+            const LINE_DIST = 55;     // Max distance to draw connecting lines
+            let dots = [];
+            let mouse = { x: -1000, y: -1000 };
+            let smoothMouse = { x: -1000, y: -1000 };
 
-        function resize() {
-            W = window.innerWidth;
-            H = window.innerHeight;
-            canvas.width = W;
-            canvas.height = H;
-            buildGrid();
-        }
-
-        function buildGrid() {
-            dots = [];
-            const cols = Math.ceil(W / SPACING) + 2;
-            const rows = Math.ceil(H / SPACING) + 2;
-            const offsetX = (W - (cols - 1) * SPACING) / 2;
-            const offsetY = (H - (rows - 1) * SPACING) / 2;
-
-            for (let r = 0; r < rows; r++) {
-                for (let c = 0; c < cols; c++) {
-                    dots.push({
-                        ox: offsetX + c * SPACING,
-                        oy: offsetY + r * SPACING,
-                        x: offsetX + c * SPACING,
-                        y: offsetY + r * SPACING
-                    });
-                }
-            }
-        }
-
-        document.addEventListener('mousemove', e => {
-            mouse.x = e.clientX;
-            mouse.y = e.clientY;
-        });
-
-        document.addEventListener('mouseleave', () => {
-            mouse.x = -1000;
-            mouse.y = -1000;
-        });
-
-        function draw() {
-            ctx.clearRect(0, 0, W, H);
-
-            // Smooth the mouse position for fluid motion
-            smoothMouse.x += (mouse.x - smoothMouse.x) * 0.12;
-            smoothMouse.y += (mouse.y - smoothMouse.y) * 0.12;
-
-            const mx = smoothMouse.x;
-            const my = smoothMouse.y;
-
-            // Update dot positions based on mouse proximity
-            for (const dot of dots) {
-                const dx = dot.ox - mx;
-                const dy = dot.oy - my;
-                const dist = Math.sqrt(dx * dx + dy * dy);
-
-                if (dist < INFLUENCE) {
-                    const force = (1 - dist / INFLUENCE);
-                    const angle = Math.atan2(dy, dx);
-                    // Ease the push with a cubic curve for a smooth falloff
-                    const push = force * force * STRENGTH;
-                    dot.x = dot.ox + Math.cos(angle) * push;
-                    dot.y = dot.oy + Math.sin(angle) * push;
-                } else {
-                    // Smoothly return to original position
-                    dot.x += (dot.ox - dot.x) * 0.1;
-                    dot.y += (dot.oy - dot.y) * 0.1;
-                }
+            function resize() {
+                W = window.innerWidth;
+                H = window.innerHeight;
+                canvas.width = W;
+                canvas.height = H;
+                buildGrid();
             }
 
-            // Draw connecting lines between nearby warped dots
-            for (let i = 0; i < dots.length; i++) {
-                for (let j = i + 1; j < dots.length; j++) {
-                    const a = dots[i];
-                    const b = dots[j];
-                    // Only check neighbors (original distance must be close)
-                    const origDx = a.ox - b.ox;
-                    const origDy = a.oy - b.oy;
-                    const origDist = Math.sqrt(origDx * origDx + origDy * origDy);
-                    if (origDist > SPACING * 1.5) continue;
+            function buildGrid() {
+                dots = [];
+                const cols = Math.ceil(W / SPACING) + 2;
+                const rows = Math.ceil(H / SPACING) + 2;
+                const offsetX = (W - (cols - 1) * SPACING) / 2;
+                const offsetY = (H - (rows - 1) * SPACING) / 2;
 
-                    const ddx = a.x - b.x;
-                    const ddy = a.y - b.y;
-                    const d = Math.sqrt(ddx * ddx + ddy * ddy);
-
-                    if (d < LINE_DIST) {
-                        // Lines only appear near the cursor influence zone
-                        const midX = (a.x + b.x) / 2;
-                        const midY = (a.y + b.y) / 2;
-                        const distToMouse = Math.sqrt((midX - mx) * (midX - mx) + (midY - my) * (midY - my));
-
-                        if (distToMouse < INFLUENCE * 1.3) {
-                            const lineAlpha = (1 - distToMouse / (INFLUENCE * 1.3)) * 0.15;
-                            ctx.beginPath();
-                            ctx.moveTo(a.x, a.y);
-                            ctx.lineTo(b.x, b.y);
-                            ctx.strokeStyle = `rgba(66, 133, 244, ${lineAlpha})`;
-                            ctx.lineWidth = 0.5;
-                            ctx.stroke();
-                        }
+                for (let r = 0; r < rows; r++) {
+                    for (let c = 0; c < cols; c++) {
+                        dots.push({
+                            ox: offsetX + c * SPACING,
+                            oy: offsetY + r * SPACING,
+                            x: offsetX + c * SPACING,
+                            y: offsetY + r * SPACING
+                        });
                     }
                 }
             }
 
-            // Draw dots
-            for (const dot of dots) {
-                const dx = dot.x - mx;
-                const dy = dot.y - my;
-                const dist = Math.sqrt(dx * dx + dy * dy);
+            document.addEventListener('mousemove', e => {
+                mouse.x = e.clientX;
+                mouse.y = e.clientY;
+            });
 
-                let alpha, r, g, b;
-                if (dist < INFLUENCE) {
-                    const t = 1 - dist / INFLUENCE;
-                    // Transition from gray to Google blue near cursor
-                    r = Math.round(200 - t * 134);  // 200 → 66
-                    g = Math.round(200 - t * 67);    // 200 → 133
-                    b = Math.round(210 + t * 34);    // 210 → 244
-                    alpha = 0.15 + t * 0.55;         // 0.15 → 0.7
-                } else {
-                    r = 200; g = 200; b = 210;
-                    alpha = 0.15;
+            document.addEventListener('mouseleave', () => {
+                mouse.x = -1000;
+                mouse.y = -1000;
+            });
+
+            function draw() {
+                ctx.clearRect(0, 0, W, H);
+
+                // Smooth the mouse position for fluid motion
+                smoothMouse.x += (mouse.x - smoothMouse.x) * 0.12;
+                smoothMouse.y += (mouse.y - smoothMouse.y) * 0.12;
+
+                const mx = smoothMouse.x;
+                const my = smoothMouse.y;
+
+                // Update dot positions based on mouse proximity
+                for (const dot of dots) {
+                    const dx = dot.ox - mx;
+                    const dy = dot.oy - my;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < INFLUENCE) {
+                        const force = (1 - dist / INFLUENCE);
+                        const angle = Math.atan2(dy, dx);
+                        // Ease the push with a cubic curve for a smooth falloff
+                        const push = force * force * STRENGTH;
+                        dot.x = dot.ox + Math.cos(angle) * push;
+                        dot.y = dot.oy + Math.sin(angle) * push;
+                    } else {
+                        // Smoothly return to original position
+                        dot.x += (dot.ox - dot.x) * 0.1;
+                        dot.y += (dot.oy - dot.y) * 0.1;
+                    }
                 }
 
-                const radius = dist < INFLUENCE
-                    ? DOT_RADIUS + (1 - dist / INFLUENCE) * 2
-                    : DOT_RADIUS;
+                // Draw connecting lines between nearby warped dots
+                for (let i = 0; i < dots.length; i++) {
+                    for (let j = i + 1; j < dots.length; j++) {
+                        const a = dots[i];
+                        const b = dots[j];
+                        // Only check neighbors (original distance must be close)
+                        const origDx = a.ox - b.ox;
+                        const origDy = a.oy - b.oy;
+                        const origDist = Math.sqrt(origDx * origDx + origDy * origDy);
+                        if (origDist > SPACING * 1.5) continue;
 
-                ctx.beginPath();
-                ctx.arc(dot.x, dot.y, radius, 0, Math.PI * 2);
-                ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
-                ctx.fill();
+                        const ddx = a.x - b.x;
+                        const ddy = a.y - b.y;
+                        const d = Math.sqrt(ddx * ddx + ddy * ddy);
+
+                        if (d < LINE_DIST) {
+                            // Lines only appear near the cursor influence zone
+                            const midX = (a.x + b.x) / 2;
+                            const midY = (a.y + b.y) / 2;
+                            const distToMouse = Math.sqrt((midX - mx) * (midX - mx) + (midY - my) * (midY - my));
+
+                            if (distToMouse < INFLUENCE * 1.3) {
+                                const lineAlpha = (1 - distToMouse / (INFLUENCE * 1.3)) * 0.15;
+                                ctx.beginPath();
+                                ctx.moveTo(a.x, a.y);
+                                ctx.lineTo(b.x, b.y);
+                                ctx.strokeStyle = `rgba(66, 133, 244, ${lineAlpha})`;
+                                ctx.lineWidth = 0.5;
+                                ctx.stroke();
+                            }
+                        }
+                    }
+                }
+
+                // Draw dots
+                for (const dot of dots) {
+                    const dx = dot.x - mx;
+                    const dy = dot.y - my;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    let alpha, r, g, b;
+                    if (dist < INFLUENCE) {
+                        const t = 1 - dist / INFLUENCE;
+                        // Transition from gray to Google blue near cursor
+                        r = Math.round(200 - t * 134);  // 200 → 66
+                        g = Math.round(200 - t * 67);    // 200 → 133
+                        b = Math.round(210 + t * 34);    // 210 → 244
+                        alpha = 0.15 + t * 0.55;         // 0.15 → 0.7
+                    } else {
+                        r = 200; g = 200; b = 210;
+                        alpha = 0.15;
+                    }
+
+                    const radius = dist < INFLUENCE
+                        ? DOT_RADIUS + (1 - dist / INFLUENCE) * 2
+                        : DOT_RADIUS;
+
+                    ctx.beginPath();
+                    ctx.arc(dot.x, dot.y, radius, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
+                    ctx.fill();
+                }
+
+                // Parallax effect for floating fragments
+                const fragments = document.querySelectorAll('.fragment');
+                fragments.forEach(frag => {
+                    const speed = parseFloat(frag.getAttribute('data-parallax')) || 0.05;
+                    const x = (mx - W / 2) * speed;
+                    const y = (my - H / 2) * speed;
+                    frag.style.transform = `translate(${x}px, ${y}px) scale(1)`;
+                });
+
+                requestAnimationFrame(draw);
             }
 
-            // Parallax effect for floating fragments
-            const fragments = document.querySelectorAll('.fragment');
-            fragments.forEach(frag => {
-                const speed = parseFloat(frag.getAttribute('data-parallax')) || 0.05;
-                const x = (mx - W / 2) * speed;
-                const y = (my - H / 2) * speed;
-                frag.style.transform = `translate(${x}px, ${y}px) scale(1)`;
-            });
+            window.addEventListener('resize', resize);
+            resize();
+            draw();
 
-            requestAnimationFrame(draw);
-        }
-
-        window.addEventListener('resize', resize);
-        resize();
-        draw();
-
-        // Scroll-triggered fade-in animation
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach((entry, index) => {
-                if (entry.isIntersecting) {
-                    setTimeout(() => {
-                        entry.target.classList.add('visible');
-                    }, index * 150);
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.15 });
-
-        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
-
-        // Sticky Scroll Intersection Logic for Why Customers Love section
-        const whySteps = document.querySelectorAll('.why-step');
-        const vizLayers = document.querySelectorAll('.viz-layer');
-
-        if(whySteps.length > 0) {
-            const stepObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
+            // Scroll-triggered fade-in animation
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
                     if (entry.isIntersecting) {
-                        whySteps.forEach(step => step.classList.remove('active'));
-                        vizLayers.forEach(viz => viz.classList.remove('active'));
-                        
-                        entry.target.classList.add('active');
-                        
-                        let i = 0;
-                        whySteps.forEach((step, index) => {
-                            if (step === entry.target) i = index;
-                        });
-                        
-                        if(vizLayers[i]) {
-                            vizLayers[i].classList.add('active');
-                        }
+                        setTimeout(() => {
+                            entry.target.classList.add('visible');
+                        }, index * 150);
+                        observer.unobserve(entry.target);
                     }
                 });
-            }, { 
-                rootMargin: '-30% 0px -50% 0px' 
-            });
+            }, { threshold: 0.15 });
 
-            whySteps.forEach(step => stepObserver.observe(step));
-        }
+            document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
 
-        // ===== Dashboard Mockup Activity Simulation =====
-        const dbContainer = document.getElementById('db-requests');
-        const SAMPLE_REQUESTS = [
-            { text: "Need aircon cleaning tomorrow in Davao. Budget ₱1,500.", tag: "Aircon Service", time: "Just now" },
-            { text: "Looking for catering service for 50 people this weekend.", tag: "Catering", time: "Just now" },
-            { text: "Need 100 shirts printed for a company event next week.", tag: "Printing", time: "Just now" },
-            { text: "Looking for a plumber near Obrero for a leaking faucet.", tag: "Plumbing", time: "Just now" },
-            { text: "Need someone to repair my Samsung washing machine.", tag: "Appliance Repair", time: "Just now" }
-        ];
+            // Sticky Scroll Intersection Logic for Why Customers Love section
+            const whySteps = document.querySelectorAll('.why-step');
+            const vizLayers = document.querySelectorAll('.viz-layer');
 
-        let reqIndex = 0;
+            if (whySteps.length > 0) {
+                const stepObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            whySteps.forEach(step => step.classList.remove('active'));
+                            vizLayers.forEach(viz => viz.classList.remove('active'));
 
-        function addRequest() {
-            if (!dbContainer) return;
-            
-            const req = SAMPLE_REQUESTS[reqIndex % SAMPLE_REQUESTS.length];
-            const card = document.createElement('div');
-            card.className = 'db-card';
-            card.innerHTML = `
+                            entry.target.classList.add('active');
+
+                            let i = 0;
+                            whySteps.forEach((step, index) => {
+                                if (step === entry.target) i = index;
+                            });
+
+                            if (vizLayers[i]) {
+                                vizLayers[i].classList.add('active');
+                            }
+                        }
+                    });
+                }, {
+                    rootMargin: '-30% 0px -50% 0px'
+                });
+
+                whySteps.forEach(step => stepObserver.observe(step));
+            }
+
+            // ===== Dashboard Mockup Activity Simulation =====
+            const dbContainer = document.getElementById('db-requests');
+            const SAMPLE_REQUESTS = [
+                { text: "Need aircon cleaning tomorrow in Davao. Budget ₱1,500.", tag: "Aircon Service", time: "Just now" },
+                { text: "Looking for catering service for 50 people this weekend.", tag: "Catering", time: "Just now" },
+                { text: "Need 100 shirts printed for a company event next week.", tag: "Printing", time: "Just now" },
+                { text: "Looking for a plumber near Obrero for a leaking faucet.", tag: "Plumbing", time: "Just now" },
+                { text: "Need someone to repair my Samsung washing machine.", tag: "Appliance Repair", time: "Just now" }
+            ];
+
+            let reqIndex = 0;
+
+            function addRequest() {
+                if (!dbContainer) return;
+
+                const req = SAMPLE_REQUESTS[reqIndex % SAMPLE_REQUESTS.length];
+                const card = document.createElement('div');
+                card.className = 'db-card';
+                card.innerHTML = `
                 <div class="db-card-top">
                     <span class="db-label">${req.tag}</span>
                     <span class="db-time">${req.time}</span>
@@ -3916,161 +4402,162 @@
                     <div class="db-btn db-btn-secondary">View Details</div>
                 </div>
             `;
-            
-            // Limit to 3 cards visible at once
-            if (dbContainer.children.length >= 3) {
-                const last = dbContainer.firstElementChild;
-                last.style.opacity = '0';
-                last.style.transform = 'translateY(-20px) scale(0.9)';
-                last.style.transition = 'all 0.4s ease';
-                setTimeout(() => last.remove(), 400);
+
+                // Limit to 3 cards visible at once
+                if (dbContainer.children.length >= 3) {
+                    const last = dbContainer.firstElementChild;
+                    last.style.opacity = '0';
+                    last.style.transform = 'translateY(-20px) scale(0.9)';
+                    last.style.transition = 'all 0.4s ease';
+                    setTimeout(() => last.remove(), 400);
+                }
+
+                dbContainer.appendChild(card);
+                reqIndex++;
             }
-            
-            dbContainer.appendChild(card);
-            reqIndex++;
-        }
 
-        // ===== AI Matching Animation Logic =====
-        function initAiMatching() {
-            const svg = document.getElementById('ai-svg');
-            const reqCard = document.getElementById('ai-request-card');
-            const bizes = [
-                document.getElementById('biz1'),
-                document.getElementById('biz2'),
-                document.getElementById('biz3')
+            // ===== AI Matching Animation Logic =====
+            function initAiMatching() {
+                const svg = document.getElementById('ai-svg');
+                const reqCard = document.getElementById('ai-request-card');
+                const bizes = [
+                    document.getElementById('biz1'),
+                    document.getElementById('biz2'),
+                    document.getElementById('biz3')
+                ];
+                const lines = [
+                    document.getElementById('line1'),
+                    document.getElementById('line2'),
+                    document.getElementById('line3')
+                ];
+
+                if (!svg || !reqCard) return;
+
+                function updateLines() {
+                    const rRect = reqCard.getBoundingClientRect();
+                    const sRect = svg.getBoundingClientRect();
+
+                    const x1 = (rRect.left + rRect.width) - sRect.left;
+                    const y1 = (rRect.top + rRect.height / 2) - sRect.top;
+
+                    bizes.forEach((biz, i) => {
+                        const bRect = biz.getBoundingClientRect();
+                        const x2 = bRect.left - sRect.left;
+                        const y2 = (bRect.top + bRect.height / 2) - sRect.top;
+
+                        // Quadratic Bezier curve for smooth flow
+                        const cpX = (x1 + x2) / 2 + 50;
+                        const cpY = (y1 + y2) / 2;
+
+                        lines[i].setAttribute('d', `M ${x1} ${y1} Q ${cpX} ${cpY} ${x2} ${y2}`);
+                    });
+                }
+
+                // Runs matching sequence
+                function startMatching() {
+                    // Reset
+                    bizes.forEach(b => b.classList.remove('matched'));
+                    lines.forEach(l => l.classList.remove('active'));
+
+                    // Sequential matching
+                    setTimeout(() => {
+                        lines[0].classList.add('active');
+                        setTimeout(() => bizes[0].classList.add('matched'), 400);
+                    }, 1000);
+
+                    setTimeout(() => {
+                        lines[1].classList.add('active');
+                        setTimeout(() => bizes[1].classList.add('matched'), 400);
+                    }, 2000);
+
+                    setTimeout(() => {
+                        lines[2].classList.add('active');
+                        setTimeout(() => bizes[2].classList.add('matched'), 400);
+                    }, 3000);
+
+                    // Re-run every 8 seconds
+                    setTimeout(startMatching, 8000);
+                }
+
+                // Update lines on resize and initial
+                window.addEventListener('resize', updateLines);
+                updateLines();
+
+                // Start when section is visible
+                const aiObserver = new IntersectionObserver((entries) => {
+                    if (entries[0].isIntersecting) {
+                        startMatching();
+                        aiObserver.disconnect();
+                    }
+                }, { threshold: 0.3 });
+
+                aiObserver.observe(document.querySelector('.ai-matching'));
+            }
+
+            // ===== Early Access: Orbital Ecosystem =====
+            const cyclingText = document.getElementById('cycling-text');
+            const orbitalRoot = document.getElementById('orbital-root');
+            const earlyAccessSec = document.querySelector('.early-access');
+
+            const ECOSYSTEM = [
+                { word: "cleaner", color: "#4285F4", icon: "cleaning_services" },
+                { word: "plumber", color: "#34A853", icon: "plumbing" },
+                { word: "caterer", color: "#FBBC04", icon: "restaurant" },
+                { word: "designer", color: "#EA4335", icon: "palette" },
+                { word: "mechanic", color: "#673AB7", icon: "handyman" },
+                { word: "tutor", color: "#00BCD4", icon: "school" }
             ];
-            const lines = [
-                document.getElementById('line1'),
-                document.getElementById('line2'),
-                document.getElementById('line3')
-            ];
 
-            if (!svg || !reqCard) return;
+            let ecoIdx = 0;
+            function cycleEcosystem() {
+                if (!cyclingText) return;
+                cyclingText.style.opacity = '0';
+                cyclingText.style.transform = 'translateY(15px)';
 
-            function updateLines() {
-                const rRect = reqCard.getBoundingClientRect();
-                const sRect = svg.getBoundingClientRect();
-                
-                const x1 = (rRect.left + rRect.width) - sRect.left;
-                const y1 = (rRect.top + rRect.height / 2) - sRect.top;
+                setTimeout(() => {
+                    ecoIdx = (ecoIdx + 1) % ECOSYSTEM.length;
+                    const active = ECOSYSTEM[ecoIdx];
 
-                bizes.forEach((biz, i) => {
-                    const bRect = biz.getBoundingClientRect();
-                    const x2 = bRect.left - sRect.left;
-                    const y2 = (bRect.top + bRect.height / 2) - sRect.top;
+                    cyclingText.textContent = active.word;
+                    earlyAccessSec.style.setProperty('--orbit-color', active.color);
 
-                    // Quadratic Bezier curve for smooth flow
-                    const cpX = (x1 + x2) / 2 + 50;
-                    const cpY = (y1 + y2) / 2;
-                    
-                    lines[i].setAttribute('d', `M ${x1} ${y1} Q ${cpX} ${cpY} ${x2} ${y2}`);
+                    cyclingText.style.opacity = '1';
+                    cyclingText.style.transform = 'translateY(0)';
+                }, 500);
+
+                setTimeout(cycleEcosystem, 3000);
+            }
+
+            function initOrbital() {
+                if (!orbitalRoot) return;
+                const RADIUSES = [250, 375, 500];
+                const ICONS = ["cleaning_services", "plumbing", "restaurant", "palette", "handyman", "school", "local_shipping", "electrical_services", "imagesearch_roller"];
+
+                ICONS.forEach((icon, i) => {
+                    const el = document.createElement('div');
+                    el.className = 'orbit-icon';
+                    el.innerHTML = `<span class="material-symbols-outlined orbit-icon-inner" style="font-size: 20px;">${icon}</span>`;
+
+                    const r = RADIUSES[i % RADIUSES.length];
+                    const duration = 20 + Math.random() * 40;
+
+                    el.style.setProperty('--radius', `${r}px`);
+                    el.style.top = '50%';
+                    el.style.left = '50%';
+                    el.style.marginTop = '-22px';
+                    el.style.marginLeft = '-22px';
+                    el.style.animation = `orbit ${duration}s linear infinite`;
+                    el.style.animationDelay = `-${Math.random() * 40}s`;
+
+                    orbitalRoot.appendChild(el);
                 });
             }
 
-            // Runs matching sequence
-            function startMatching() {
-                // Reset
-                bizes.forEach(b => b.classList.remove('matched'));
-                lines.forEach(l => l.classList.remove('active'));
+            cycleEcosystem();
+            initOrbital();
 
-                // Sequential matching
-                setTimeout(() => {
-                    lines[0].classList.add('active');
-                    setTimeout(() => bizes[0].classList.add('matched'), 400);
-                }, 1000);
-
-                setTimeout(() => {
-                    lines[1].classList.add('active');
-                    setTimeout(() => bizes[1].classList.add('matched'), 400);
-                }, 2000);
-
-                setTimeout(() => {
-                    lines[2].classList.add('active');
-                    setTimeout(() => bizes[2].classList.add('matched'), 400);
-                }, 3000);
-
-                // Re-run every 8 seconds
-                setTimeout(startMatching, 8000);
-            }
-
-            // Update lines on resize and initial
-            window.addEventListener('resize', updateLines);
-            updateLines();
-            
-            // Start when section is visible
-            const aiObserver = new IntersectionObserver((entries) => {
-                if (entries[0].isIntersecting) {
-                    startMatching();
-                    aiObserver.disconnect();
-                }
-            }, { threshold: 0.3 });
-            
-            aiObserver.observe(document.querySelector('.ai-matching'));
-        }
-
-        // ===== Early Access: Orbital Ecosystem =====
-        const cyclingText = document.getElementById('cycling-text');
-        const orbitalRoot = document.getElementById('orbital-root');
-        const earlyAccessSec = document.querySelector('.early-access');
-        
-        const ECOSYSTEM = [
-            { word: "cleaner", color: "#4285F4", icon: "cleaning_services" },
-            { word: "plumber", color: "#34A853", icon: "plumbing" },
-            { word: "caterer", color: "#FBBC04", icon: "restaurant" },
-            { word: "designer", color: "#EA4335", icon: "palette" },
-            { word: "mechanic", color: "#673AB7", icon: "handyman" },
-            { word: "tutor", color: "#00BCD4", icon: "school" }
-        ];
-
-        let ecoIdx = 0;
-        function cycleEcosystem() {
-            if (!cyclingText) return;
-            cyclingText.style.opacity = '0';
-            cyclingText.style.transform = 'translateY(15px)';
-            
-            setTimeout(() => {
-                ecoIdx = (ecoIdx + 1) % ECOSYSTEM.length;
-                const active = ECOSYSTEM[ecoIdx];
-                
-                cyclingText.textContent = active.word;
-                earlyAccessSec.style.setProperty('--orbit-color', active.color);
-                
-                cyclingText.style.opacity = '1';
-                cyclingText.style.transform = 'translateY(0)';
-            }, 500);
-            
-            setTimeout(cycleEcosystem, 3000);
-        }
-
-        function initOrbital() {
-            if (!orbitalRoot) return;
-            const RADIUSES = [250, 375, 500];
-            const ICONS = ["cleaning_services", "plumbing", "restaurant", "palette", "handyman", "school", "local_shipping", "electrical_services", "imagesearch_roller"];
-
-            ICONS.forEach((icon, i) => {
-                const el = document.createElement('div');
-                el.className = 'orbit-icon';
-                el.innerHTML = `<span class="material-symbols-outlined orbit-icon-inner" style="font-size: 20px;">${icon}</span>`;
-                
-                const r = RADIUSES[i % RADIUSES.length];
-                const duration = 20 + Math.random() * 40;
-                
-                el.style.setProperty('--radius', `${r}px`);
-                el.style.top = '50%';
-                el.style.left = '50%';
-                el.style.marginTop = '-22px';
-                el.style.marginLeft = '-22px';
-                el.style.animation = `orbit ${duration}s linear infinite`;
-                el.style.animationDelay = `-${Math.random() * 40}s`;
-                
-                orbitalRoot.appendChild(el);
-            });
-        }
-
-        cycleEcosystem();
-        initOrbital();
-
-        initAiMatching();
-    </script>
+            initAiMatching();
+        </script>
 </body>
+
 </html>

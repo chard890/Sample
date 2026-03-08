@@ -585,5 +585,5 @@ js_logic = '''
 if '<script>\n        // Sticky Scroll' not in content:
     content = content.replace('</body>', js_logic)
 
-with open('k:/Antigravity Projects/Marketplace/hero.html', 'w', encoding='utf-8') as f:
+with open('k:/Antigravity Projects/Marketplace/index.html', 'w', encoding='utf-8') as f:
     f.write(content)

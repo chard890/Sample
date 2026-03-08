@@ -585,5 +585,5 @@ if (!content.includes('// Sticky Scroll')) {
     content = content.replace('</body>', jsLogic);
 }
 
-fs.writeFileSync('k:/Antigravity Projects/Marketplace/hero.html', content, 'utf-8');
+fs.writeFileSync('k:/Antigravity Projects/Marketplace/index.html', content, 'utf-8');
 console.log('Update successful');

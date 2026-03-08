@@ -159,253 +159,245 @@
         .btn-nav-primary:hover {
             background-color: #2D2D2D;
         }
-
-        .hero-section {
-            position: relative;
-            z-index: 1;
-            max-width: 1200px;
-            width: 100%;
-            margin: auto;
-            padding: 80px 40px;
-            display: flex;
-            align-items: center;
-            gap: 60px;
-            box-sizing: border-box;
-        }
-
-        .hero-content {
-            flex: 1;
-            max-width: 540px;
-        }
-
-        .hero-headline {
-            font-size: 3.5rem;
-            line-height: 1.15;
-            font-weight: 700;
-            letter-spacing: -0.02em;
-            margin-top: 0;
-            margin-bottom: 24px;
-            color: var(--text-main);
-        }
-
-        .hero-subheadline {
-            font-size: 1.125rem;
-            line-height: 1.6;
-            color: var(--text-secondary);
-            margin-bottom: 40px;
-        }
-
         .hero-buttons {
             display: flex;
             gap: 16px;
-            margin-bottom: 24px;
+            margin-bottom: 32px;
             flex-wrap: wrap;
         }
 
         .btn {
             font-family: var(--font-family);
             font-size: 1rem;
-            font-weight: 500;
-            padding: 14px 28px;
+            font-weight: 600;
+            padding: 16px 32px;
             border-radius: 100px;
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
             border: none;
             display: inline-flex;
             align-items: center;
             justify-content: center;
+            text-decoration: none;
+            gap: 8px;
         }
 
         .btn-primary {
             background-color: var(--primary-color);
             color: #FFFFFF;
-            box-shadow: 0 1px 3px rgba(66, 133, 244, 0.3);
+            box-shadow: 0 4px 14px 0 rgba(66, 133, 244, 0.3);
         }
 
         .btn-primary:hover {
             background-color: var(--primary-hover);
-            box-shadow: 0 4px 8px rgba(66, 133, 244, 0.4);
-        }
-
-        .btn-primary:active {
-            transform: translateY(1px);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(66, 133, 244, 0.35);
         }
 
         .btn-secondary {
             background-color: #FFFFFF;
-            color: var(--primary-color);
+            color: var(--text-main);
             border: 1px solid var(--border-color);
         }
 
         .btn-secondary:hover {
             background-color: #F8F9FA;
             border-color: #D2E3FC;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
         }
 
-        .hero-supporting-text {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin: 0;
+        .btn-glow {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-glow::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, #4285F4, #34A853, #FBBC04, #EA4335, #4285F4);
+            background-size: 400%;
+            z-index: -1;
+            filter: blur(8px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 100px;
+            animation: glow-move 20s linear infinite;
+        }
+
+        .btn-glow:hover::before {
+            opacity: 0.6;
+        }
+
+        @keyframes glow-move {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .hero-section {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            min-height: calc(100vh - 100px);
             display: flex;
             align-items: center;
-            gap: 6px;
+            justify-content: center;
+            padding: 100px 40px;
+            box-sizing: border-box;
+            background: radial-gradient(circle at 50% 50%, rgba(66, 133, 244, 0.04), transparent 70%);
         }
 
-        .hero-mockup {
-            flex: 1.1;
+        .hero-dynamic-hub {
+            text-align: center;
+            max-width: 1200px;
+            width: 100%;
             position: relative;
         }
 
-        .mockup-container {
+        .hero-content {
             position: relative;
-            background: #FFFFFF;
+            z-index: 10;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-headline {
+            font-size: 5rem;
+            line-height: 1.05;
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            margin-bottom: 32px;
+            color: var(--text-main);
+            background: linear-gradient(135deg, #000 0%, #4285F4 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subheadline {
+            font-size: 1.35rem;
+            line-height: 1.5;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Floating Fragments */
+        .fragment {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 24px;
-            padding: 40px;
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
-            border: 1px solid rgba(224, 224, 224, 0.5);
-            background-image: radial-gradient(circle at top right, rgba(66, 133, 244, 0.03), transparent 300px);
+            padding: 24px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            z-index: 5;
+            transition: transform 0.1s ease-out;
+            pointer-events: none;
         }
 
-        .input-box {
-            background: #FFFFFF;
-            border: 2px solid var(--primary-color);
-            border-radius: 16px;
-            padding: 16px 20px;
+        .fragment-1 {
+            top: -40px;
+            left: -80px;
+            width: 280px;
+            transform: rotate(-4deg);
+            animation: float-1 8s ease-in-out infinite;
+        }
+
+        .fragment-2 {
+            bottom: -60px;
+            left: -20px;
+            width: 320px;
+            transform: rotate(2deg);
+            animation: float-2 10s ease-in-out infinite;
+        }
+
+        .fragment-3 {
+            top: 20%;
+            right: -100px;
+            width: 300px;
+            transform: rotate(3deg);
+            animation: float-1 9s ease-in-out infinite reverse;
+        }
+
+        .fragment-4 {
+            bottom: -20px;
+            right: 0;
+            width: 260px;
+            transform: rotate(-2deg);
+            animation: float-2 7s ease-in-out infinite reverse;
+        }
+
+        @keyframes float-1 {
+            0%, 100% { transform: translate(0, 0) rotate(-4deg); }
+            50% { transform: translate(10px, -15px) rotate(-2deg); }
+        }
+
+        @keyframes float-2 {
+            0%, 100% { transform: translate(0, 0) rotate(2deg); }
+            50% { transform: translate(-10px, 15px) rotate(4deg); }
+        }
+
+        /* Fragment Content Styles */
+        .frag-row {
             display: flex;
             align-items: center;
-            box-shadow: 0 4px 16px rgba(66, 133, 244, 0.12);
-            margin-bottom: 24px;
-            position: relative;
-            z-index: 2;
+            gap: 12px;
+            margin-bottom: 12px;
         }
 
-        .input-icon {
+        .frag-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            background: #E8F0FE;
             color: var(--primary-color);
-            margin-right: 12px;
-            font-size: 24px;
-        }
-
-        .input-text {
-            flex: 1;
-            color: var(--text-main);
-            font-size: 1rem;
-            font-weight: 500;
-        }
-
-        .input-cursor {
-            display: inline-block;
-            width: 2px;
-            height: 20px;
-            background-color: var(--primary-color);
-            margin-left: 4px;
-            vertical-align: middle;
-            animation: blink 1s step-end infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
-        }
-
-        .ai-status {
             display: flex;
             align-items: center;
-            gap: 8px;
-            font-size: 0.875rem;
-            color: var(--primary-color);
-            margin-bottom: 24px;
-            font-weight: 500;
-            animation: fadeIn 0.5s ease 1s backwards;
+            justify-content: center;
         }
 
-        .ai-status .material-symbols-outlined {
-            animation: pulse-icon 2s infinite;
+        .frag-text h4 {
+            margin: 0;
+            font-size: 0.9375rem;
+            font-weight: 700;
         }
 
-        @keyframes pulse-icon {
-            0% { transform: scale(1); opacity: 1; }
-            50% { transform: scale(1.15); opacity: 0.7; }
-            100% { transform: scale(1); opacity: 1; }
+        .frag-text p {
+            margin: 0;
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
         }
 
-        .offers-list {
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .offer-card {
-            background: #FFFFFF;
-            border-radius: 16px;
-            padding: 20px;
-            border: 1px solid var(--border-color);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
-            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
-        }
-
-        .offer-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            border-color: #D2E3FC;
-        }
-
-        .offer-card:nth-child(1) { animation-delay: 1.5s; }
-        .offer-card:nth-child(2) { animation-delay: 1.7s; }
-        .offer-card:nth-child(3) { animation-delay: 1.9s; }
-
-        .business-title {
-            display: flex;
+        .frag-status {
+            display: inline-flex;
             align-items: center;
             gap: 6px;
-            margin-bottom: 4px;
-        }
-
-        .business-title h4 {
-            margin: 0;
-            font-size: 1rem;
-            color: var(--text-main);
-            font-weight: 600;
-        }
-
-        .verified-icon {
-            font-size: 16px;
-            color: var(--primary-color);
-        }
-
-        .offer-info p {
-            margin: 0;
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-        }
-
-        .offer-price {
-            text-align: right;
-        }
-
-        .price-value {
-            font-size: 1.125rem;
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 6px;
-        }
-
-        .price-label {
             font-size: 0.75rem;
-            color: #137333; /* Darker green text */
             font-weight: 600;
-            background: #E6F4EA;
-            padding: 4px 8px;
-            border-radius: 4px;
-            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 100px;
+            margin-top: 8px;
         }
 
-        .price-label.neutral {
-            color: var(--text-secondary);
-            background: #F1F3F4;
+        .status-blue { background: #E8F0FE; color: var(--primary-color); }
+        .status-green { background: #E6F4EA; color: #137333; }
+
+        @media (max-width: 1200px) {
+            .fragment-1 { left: 0; top: -100px; }
+            .fragment-3 { right: 0; top: -50px; }
+            .hero-headline { font-size: 4rem; }
+        }
+
+        @media (max-width: 992px) {
+            .fragment { display: none; }
+            .hero-section { padding-top: 60px; min-height: auto; }
+            .hero-headline { font-size: 3rem; }
         }
 
         /* Animations */
@@ -2744,78 +2736,72 @@
     </div>
 
     <section class="hero-section">
-        <div class="hero-content">
-            <h1 class="hero-headline">Stop searching. Post what you need and let businesses come to you.</h1>
-            <p class="hero-subheadline">Describe what you need in seconds. Our AI finds the right businesses and they send you their best offers. Fast, simple, and free for customers.</p>
-            
-            <div class="hero-buttons">
-                <button class="btn btn-primary">Post What You Need</button>
-                <button class="btn btn-secondary">Get Customers for Your Business</button>
+        <div class="hero-dynamic-hub">
+            <!-- Floating Fragment 1: Search Request -->
+            <div class="fragment fragment-1" data-parallax="0.04">
+                <div class="frag-row">
+                    <div class="frag-icon"><span class="material-symbols-outlined">auto_awesome</span></div>
+                    <div class="frag-text">
+                        <h4>"Need aircon cleaning..."</h4>
+                        <p>Davao City · ₱1,500</p>
+                    </div>
+                </div>
+                <div class="frag-status status-blue">
+                    <span class="material-symbols-outlined" style="font-size: 14px;">sync</span>
+                    AI Analyzing Intent
+                </div>
             </div>
-            
-            <p class="hero-supporting-text">
-                <span class="material-symbols-outlined" style="font-size: 18px;">info</span>
-                Free for customers. Businesses subscribe to receive real customer requests.
-            </p>
-        </div>
-        
-        <div class="hero-mockup">
-            <div class="mockup-container">
-                <div class="input-box">
-                    <span class="material-symbols-outlined input-icon">auto_awesome</span>
-                    <span class="input-text">Need aircon cleaning tomorrow in Davao. Budget 1500.<span class="input-cursor"></span></span>
+
+            <!-- Floating Fragment 2: Successful Match -->
+            <div class="fragment fragment-2" data-parallax="0.06">
+                <div class="frag-row">
+                    <div class="frag-icon" style="background: #E6F4EA; color: #137333;"><span class="material-symbols-outlined">storefront</span></div>
+                    <div class="frag-text">
+                        <h4>AirCool Services</h4>
+                        <p>Best Match found</p>
+                    </div>
+                </div>
+                <div class="frag-status status-green">
+                    <span class="material-symbols-outlined" style="font-size: 14px;">verified</span>
+                    Verified Business
+                </div>
+            </div>
+
+            <!-- Floating Fragment 3: Offer Alert -->
+            <div class="fragment fragment-3" data-parallax="0.03">
+                <div class="frag-row">
+                    <div class="frag-icon" style="background: #FFF7E0; color: #B06000;"><span class="material-symbols-outlined">local_offer</span></div>
+                    <div class="frag-text">
+                        <h4>New Offer Received</h4>
+                        <p>₱1,400 · Instant Reply</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Floating Fragment 4: Trust Badge -->
+            <div class="fragment fragment-4" data-parallax="0.05">
+                <div class="frag-row">
+                    <div class="frag-icon" style="background: #FCE8E6; color: #C5221F;"><span class="material-symbols-outlined">favorite</span></div>
+                    <div class="frag-text">
+                        <h4>10,000+ Happy Users</h4>
+                        <p>Trust in PhiMart</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-content fade-in-up">
+                <h1 class="hero-headline">Stop searching. <br>The right business <br>finds you.</h1>
+                <p class="hero-subheadline">The AI-powered marketplace where your needs aren't just posted—they're understood. Post once, receive top offers, choose your best fit.</p>
+                
+                <div class="hero-buttons" style="justify-content: center;">
+                    <button class="btn btn-primary btn-glow">Post Your Request — Free</button>
+                    <button class="btn btn-secondary">Join as a Business</button>
                 </div>
                 
-                <div class="ai-status">
-                    <span class="material-symbols-outlined" style="font-size: 20px;">check_circle</span>
-                    <span>AI matched you with 3 top-rated businesses</span>
-                </div>
-                
-                <div class="offers-list">
-                    <!-- Offer Card 1 -->
-                    <div class="offer-card">
-                        <div class="offer-info">
-                            <div class="business-title">
-                                <h4>AirCool Services</h4>
-                                <span class="material-symbols-outlined verified-icon" title="Verified Business">verified</span>
-                            </div>
-                            <p>Aircon cleaning package</p>
-                        </div>
-                        <div class="offer-price">
-                            <div class="price-value">₱1,400</div>
-                            <div class="price-label">Best Match</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Offer Card 2 -->
-                    <div class="offer-card">
-                        <div class="offer-info">
-                            <div class="business-title">
-                                <h4>FreshAir Technicians</h4>
-                                <span class="material-symbols-outlined verified-icon" title="Verified Business">verified</span>
-                            </div>
-                            <p>Full cleaning and checkup</p>
-                        </div>
-                        <div class="offer-price">
-                            <div class="price-value">₱1,500</div>
-                            <div class="price-label neutral">Competitive</div>
-                        </div>
-                    </div>
-                    
-                    <!-- Offer Card 3 -->
-                    <div class="offer-card">
-                        <div class="offer-info">
-                            <div class="business-title">
-                                <h4>CoolFix Experts</h4>
-                            </div>
-                            <p>Same day service available</p>
-                        </div>
-                        <div class="offer-price">
-                            <div class="price-value">₱1,600</div>
-                            <div class="price-label neutral">Available Today</div>
-                        </div>
-                    </div>
-                </div>
+                <p class="hero-supporting-text" style="justify-content: center;">
+                    <span class="material-symbols-outlined" style="font-size: 18px; color: var(--primary-color);">shield</span>
+                    Privacy first · Secure messaging · Verified professionals
+                </p>
             </div>
         </div>
     </section>
@@ -3840,6 +3826,15 @@
                 ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
                 ctx.fill();
             }
+
+            // Parallax effect for floating fragments
+            const fragments = document.querySelectorAll('.fragment');
+            fragments.forEach(frag => {
+                const speed = parseFloat(frag.getAttribute('data-parallax')) || 0.05;
+                const x = (mx - W / 2) * speed;
+                const y = (my - H / 2) * speed;
+                frag.style.transform = `translate(${x}px, ${y}px) scale(1)`;
+            });
 
             requestAnimationFrame(draw);
         }

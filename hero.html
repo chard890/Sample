@@ -1,0 +1,3452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marketplace Hero - Google Style</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+    <style>
+        :root {
+            --primary-color: #4285F4; /* Google Blue */
+            --primary-hover: #3367D6;
+            --bg-color: #FFFFFF;
+            --text-main: #202124;
+            --text-secondary: #5F6368;
+            --border-color: #E0E0E0;
+            --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            --google-red: #EA4335;
+            --google-yellow: #FBBC04;
+            --google-green: #34A853;
+        }
+
+        #grid-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: var(--font-family);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            padding-top: 100px; /* Space for floating navbar */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .navbar-wrapper {
+            position: fixed;
+            top: 24px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+            padding: 0 24px;
+            box-sizing: border-box;
+            pointer-events: none;
+        }
+
+        .navbar {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: rgba(255, 255, 255, 0.45);
+            backdrop-filter: blur(20px) saturate(180%);
+            -webkit-backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 100px;
+            padding: 8px 8px 8px 32px;
+            width: 100%;
+            max-width: 1152px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06), inset 0 0 0 0.5px rgba(255, 255, 255, 0.4);
+            pointer-events: auto;
+            box-sizing: border-box;
+        }
+
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-logo {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: #000000;
+            letter-spacing: -0.02em;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .logo-icon {
+            font-size: 20px;
+            font-variation-settings: 'FILL' 1;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 0.9375rem;
+            font-weight: 500;
+            transition: opacity 0.2s ease;
+        }
+
+        .nav-item:hover {
+            opacity: 0.7;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-nav {
+            font-family: var(--font-family);
+            font-size: 0.875rem;
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid transparent;
+        }
+
+        .btn-nav-secondary {
+            background-color: #FFFFFF;
+            color: #000000;
+            border-color: #E8EAED;
+        }
+
+        .btn-nav-secondary:hover {
+            background-color: #F8F9FA;
+        }
+
+        .btn-nav-primary {
+            background-color: #0A0A0A;
+            color: #FFFFFF;
+        }
+
+        .btn-nav-primary:hover {
+            background-color: #2D2D2D;
+        }
+
+        .hero-section {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            width: 100%;
+            margin: auto;
+            padding: 80px 40px;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+            box-sizing: border-box;
+        }
+
+        .hero-content {
+            flex: 1;
+            max-width: 540px;
+        }
+
+        .hero-headline {
+            font-size: 3.5rem;
+            line-height: 1.15;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-top: 0;
+            margin-bottom: 24px;
+            color: var(--text-main);
+        }
+
+        .hero-subheadline {
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            font-family: var(--font-family);
+            font-size: 1rem;
+            font-weight: 500;
+            padding: 14px 28px;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            border: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: #FFFFFF;
+            box-shadow: 0 1px 3px rgba(66, 133, 244, 0.3);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            box-shadow: 0 4px 8px rgba(66, 133, 244, 0.4);
+        }
+
+        .btn-primary:active {
+            transform: translateY(1px);
+        }
+
+        .btn-secondary {
+            background-color: #FFFFFF;
+            color: var(--primary-color);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-secondary:hover {
+            background-color: #F8F9FA;
+            border-color: #D2E3FC;
+        }
+
+        .hero-supporting-text {
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .hero-mockup {
+            flex: 1.1;
+            position: relative;
+        }
+
+        .mockup-container {
+            position: relative;
+            background: #FFFFFF;
+            border-radius: 24px;
+            padding: 40px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.04);
+            border: 1px solid rgba(224, 224, 224, 0.5);
+            background-image: radial-gradient(circle at top right, rgba(66, 133, 244, 0.03), transparent 300px);
+        }
+
+        .input-box {
+            background: #FFFFFF;
+            border: 2px solid var(--primary-color);
+            border-radius: 16px;
+            padding: 16px 20px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 16px rgba(66, 133, 244, 0.12);
+            margin-bottom: 24px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .input-icon {
+            color: var(--primary-color);
+            margin-right: 12px;
+            font-size: 24px;
+        }
+
+        .input-text {
+            flex: 1;
+            color: var(--text-main);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .input-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 20px;
+            background-color: var(--primary-color);
+            margin-left: 4px;
+            vertical-align: middle;
+            animation: blink 1s step-end infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .ai-status {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            color: var(--primary-color);
+            margin-bottom: 24px;
+            font-weight: 500;
+            animation: fadeIn 0.5s ease 1s backwards;
+        }
+
+        .ai-status .material-symbols-outlined {
+            animation: pulse-icon 2s infinite;
+        }
+
+        @keyframes pulse-icon {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.15); opacity: 0.7; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .offers-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .offer-card {
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 20px;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            animation: slideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+        }
+
+        .offer-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            border-color: #D2E3FC;
+        }
+
+        .offer-card:nth-child(1) { animation-delay: 1.5s; }
+        .offer-card:nth-child(2) { animation-delay: 1.7s; }
+        .offer-card:nth-child(3) { animation-delay: 1.9s; }
+
+        .business-title {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 4px;
+        }
+
+        .business-title h4 {
+            margin: 0;
+            font-size: 1rem;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .verified-icon {
+            font-size: 16px;
+            color: var(--primary-color);
+        }
+
+        .offer-info p {
+            margin: 0;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+        }
+
+        .offer-price {
+            text-align: right;
+        }
+
+        .price-value {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 6px;
+        }
+
+        .price-label {
+            font-size: 0.75rem;
+            color: #137333; /* Darker green text */
+            font-weight: 600;
+            background: #E6F4EA;
+            padding: 4px 8px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .price-label.neutral {
+            color: var(--text-secondary);
+            background: #F1F3F4;
+        }
+
+        /* Animations */
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .nav-left {
+                gap: 20px;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .navbar-wrapper {
+                padding: 0 16px;
+            }
+            .navbar {
+                padding: 8px 8px 8px 24px;
+            }
+            
+            .hero-section {
+                flex-direction: column;
+                padding: 60px 24px;
+                gap: 50px;
+            }
+            
+            .hero-content {
+                max-width: 100%;
+                text-align: center;
+            }
+            
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .hero-supporting-text {
+                justify-content: center;
+            }
+            
+            .hero-headline {
+                font-size: 2.75rem;
+            }
+
+            .hero-mockup {
+                width: 100%;
+                max-width: 600px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-headline {
+                font-size: 2.25rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+
+            .offer-card {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .offer-price {
+                text-align: left;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+            }
+
+            .price-value {
+                margin-bottom: 0;
+            }
+        }
+
+        /* ========== HOW IT WORKS — PREMIUM REDESIGN ========== */
+        .how-it-works {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            padding: 120px 0 140px;
+            background: linear-gradient(180deg, #FFFFFF 0%, #F6F8FC 100%);
+        }
+
+        .how-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 96px;
+        }
+
+        .section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: #E8F0FE;
+            color: var(--primary-color);
+            font-size: 0.8125rem;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 100px;
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 2.75rem;
+            font-weight: 700;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+            margin: 0 0 16px;
+        }
+
+        .section-subtitle {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Timeline layout */
+        .steps-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+            position: relative;
+        }
+
+        /* Vertical glowing connector line */
+        .steps-timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 60px;
+            bottom: 60px;
+            width: 2px;
+            background: linear-gradient(180deg, transparent, #D2E3FC 15%, #4285F4 50%, #D2E3FC 85%, transparent);
+            transform: translateX(-50%);
+        }
+
+        .step-row {
+            display: flex;
+            align-items: center;
+            gap: 80px;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        .step-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        /* Step text side */
+        .step-text {
+            flex: 1;
+            position: relative;
+        }
+
+        .step-row:not(.reverse) .step-text {
+            text-align: right;
+        }
+
+        .step-num {
+            font-size: 5rem;
+            font-weight: 800;
+            color: transparent;
+            -webkit-text-stroke: 1.5px #D2E3FC;
+            line-height: 1;
+            margin-bottom: 12px;
+            letter-spacing: -0.04em;
+        }
+
+        .step-row:hover .step-num {
+            -webkit-text-stroke: 1.5px var(--primary-color);
+            transition: -webkit-text-stroke 0.3s ease;
+        }
+
+        .step-h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 0 0 12px;
+        }
+
+        .step-desc {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.65;
+            margin: 0;
+            max-width: 380px;
+        }
+
+        .step-row:not(.reverse) .step-desc {
+            margin-left: auto;
+        }
+
+        /* Center node on the timeline */
+        .step-node {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            border: 2px solid #D2E3FC;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+            box-shadow: 0 0 0 8px rgba(66, 133, 244, 0.06);
+            transition: all 0.3s ease;
+        }
+
+        .step-row:hover .step-node {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 12px rgba(66, 133, 244, 0.1);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .step-node .material-symbols-outlined {
+            font-size: 22px;
+            color: var(--primary-color);
+        }
+
+        /* Step visual / mockup side */
+        .step-mockup {
+            flex: 1;
+            border-radius: 24px;
+            background: #FFFFFF;
+            border: 1px solid #E8EAED;
+            padding: 32px;
+            min-height: 260px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.04);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .step-row:hover .step-mockup {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 60px rgba(66, 133, 244, 0.1), 0 4px 16px rgba(0, 0, 0, 0.04);
+        }
+
+        /* ---- Step 1 Mockup: Request form ---- */
+        .mock-request {
+            width: 100%;
+        }
+
+        .mock-label {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .mock-input-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #F8F9FA;
+            border: 1.5px solid #E8EAED;
+            border-radius: 14px;
+            padding: 14px 18px;
+            margin-bottom: 16px;
+            transition: border-color 0.3s ease;
+        }
+
+        .step-row:hover .mock-input-row {
+            border-color: var(--primary-color);
+        }
+
+        .mock-input-row .material-symbols-outlined {
+            color: var(--primary-color);
+            font-size: 22px;
+        }
+
+        .mock-input-text {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .mock-typing-cursor {
+            display: inline-block;
+            width: 2px;
+            height: 16px;
+            background: var(--primary-color);
+            margin-left: 2px;
+            vertical-align: middle;
+            animation: blink 1s step-end infinite;
+        }
+
+        .mock-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .mock-tag {
+            font-size: 0.75rem;
+            font-weight: 500;
+            padding: 5px 12px;
+            border-radius: 100px;
+            background: #E8F0FE;
+            color: var(--primary-color);
+        }
+
+        .mock-tag.green {
+            background: #E6F4EA;
+            color: #137333;
+        }
+
+        /* ---- Step 2 Mockup: AI matching flow ---- */
+        .mock-ai {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .mock-ai-top {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .ai-source {
+            background: #F8F9FA;
+            border: 1px solid #E8EAED;
+            border-radius: 14px;
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .ai-source .material-symbols-outlined {
+            font-size: 18px;
+            color: var(--text-secondary);
+        }
+
+        .ai-engine {
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #4285F4, #669DF6);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(66, 133, 244, 0.3);
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .ai-engine::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            border: 2px solid rgba(66, 133, 244, 0.15);
+            animation: ai-pulse 2s ease-out infinite;
+        }
+
+        @keyframes ai-pulse {
+            0% { transform: scale(0.85); opacity: 1; }
+            100% { transform: scale(1.3); opacity: 0; }
+        }
+
+        .ai-engine .material-symbols-outlined {
+            color: #FFFFFF;
+            font-size: 28px;
+        }
+
+        .ai-arrow {
+            color: #DADCE0;
+            font-size: 24px;
+        }
+
+        .ai-targets {
+            display: flex;
+            gap: 12px;
+        }
+
+        .ai-biz {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: #F8F9FA;
+            border: 1px solid #E8EAED;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .ai-biz .material-symbols-outlined {
+            font-size: 20px;
+            color: var(--text-secondary);
+        }
+
+        .step-row:hover .ai-biz {
+            border-color: var(--primary-color);
+            background: #E8F0FE;
+        }
+
+        .step-row:hover .ai-biz .material-symbols-outlined {
+            color: var(--primary-color);
+        }
+
+        .mock-ai-status {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .mock-ai-status .material-symbols-outlined {
+            font-size: 16px;
+        }
+
+        /* ---- Step 3 Mockup: Offer comparison ---- */
+        .mock-offers {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .mock-offer-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 20px;
+            background: #F8F9FA;
+            border: 1.5px solid #E8EAED;
+            border-radius: 14px;
+            transition: all 0.3s ease;
+            cursor: default;
+        }
+
+        .mock-offer-card.featured {
+            background: #FFFFFF;
+            border-color: var(--primary-color);
+            box-shadow: 0 4px 16px rgba(66, 133, 244, 0.08);
+        }
+
+        .mock-offer-card:hover {
+            border-color: var(--primary-color);
+            background: #FFFFFF;
+        }
+
+        .mock-offer-left {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .mock-offer-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: #E8F0FE;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mock-offer-icon .material-symbols-outlined {
+            font-size: 20px;
+            color: var(--primary-color);
+        }
+
+        .mock-offer-name {
+            font-size: 0.9375rem;
+            font-weight: 600;
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+
+        .mock-offer-detail {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .mock-offer-right {
+            text-align: right;
+        }
+
+        .mock-offer-price {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 2px;
+        }
+
+        .mock-offer-badge {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 4px;
+            display: inline-block;
+        }
+
+        .mock-offer-badge.best {
+            background: #E6F4EA;
+            color: #137333;
+        }
+
+        .mock-offer-badge.neutral {
+            background: #F1F3F4;
+            color: var(--text-secondary);
+        }
+
+        /* Scroll animation */
+        .fade-in-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .fade-in-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 992px) {
+            .step-row,
+            .step-row.reverse {
+                flex-direction: column;
+                gap: 32px;
+                text-align: center;
+            }
+
+            .step-row:not(.reverse) .step-text {
+                text-align: center;
+            }
+
+            .step-row:not(.reverse) .step-desc {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .steps-timeline::before {
+                display: none;
+            }
+
+            .step-node {
+                position: relative;
+                left: auto;
+                top: auto;
+                transform: none;
+                margin: 0 auto 20px;
+            }
+
+            .step-row:hover .step-node {
+                transform: scale(1.1);
+            }
+
+            .section-title {
+                font-size: 2.25rem;
+            }
+
+            .how-it-works {
+                padding: 80px 0 100px;
+            }
+
+            .how-inner {
+                padding: 0 24px;
+            }
+        }
+
+        /* ========== REAL REQUESTS — SCROLLING TICKER ========== */
+        .real-requests {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            padding: 120px 0 140px;
+            background: linear-gradient(180deg, #F6F8FC 0%, #FFFFFF 100%);
+            overflow: hidden;
+        }
+
+        .requests-header {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+            text-align: center;
+            margin-bottom: 64px;
+        }
+
+        .live-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #34A853;
+            margin-right: 4px;
+            animation: pulse-dot 2s ease-in-out infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(52, 168, 83, 0.4); }
+            50% { opacity: 0.7; box-shadow: 0 0 0 6px rgba(52, 168, 83, 0); }
+        }
+
+        /* Ticker rows */
+        .ticker-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        /* Edge fade masks */
+        .ticker-wrapper::before,
+        .ticker-wrapper::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 120px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .ticker-wrapper::before {
+            left: 0;
+            background: linear-gradient(90deg, #F6F8FC 0%, transparent 100%);
+        }
+
+        .ticker-wrapper::after {
+            right: 0;
+            background: linear-gradient(270deg, #FFFFFF 0%, transparent 100%);
+        }
+
+        .ticker-row {
+            display: flex;
+            gap: 20px;
+            width: max-content;
+            padding: 10px 0;
+        }
+
+        .ticker-row-1 {
+            animation: scroll-left 45s linear infinite;
+            margin-bottom: 20px;
+        }
+
+        .ticker-row-2 {
+            animation: scroll-right 50s linear infinite;
+        }
+
+        .ticker-wrapper:hover .ticker-row {
+            animation-play-state: paused;
+        }
+
+        @keyframes scroll-left {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        @keyframes scroll-right {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0); }
+        }
+
+        /* Ticker card */
+        .ticker-card {
+            flex-shrink: 0;
+            width: 360px;
+            background: #FFFFFF;
+            border: 1px solid #E8EAED;
+            border-radius: 18px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            cursor: default;
+        }
+
+        .ticker-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 16px 48px rgba(66, 133, 244, 0.1);
+            border-color: #D2E3FC;
+        }
+
+        .ticker-card-top {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .ticker-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .ticker-user-info {
+            flex: 1;
+        }
+
+        .ticker-username {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .ticker-time {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+        }
+
+        .ticker-category {
+            font-size: 0.6875rem;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 100px;
+            background: #E8F0FE;
+            color: var(--primary-color);
+            align-self: flex-start;
+        }
+
+        .ticker-category.food {
+            background: #FEF7E0;
+            color: #B06000;
+        }
+
+        .ticker-category.home {
+            background: #E6F4EA;
+            color: #137333;
+        }
+
+        .ticker-category.print {
+            background: #FCE8E6;
+            color: #C5221F;
+        }
+
+        .ticker-text {
+            font-size: 0.9375rem;
+            font-weight: 500;
+            color: var(--text-main);
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        .ticker-footer {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            padding-top: 10px;
+            border-top: 1px solid #F1F3F4;
+        }
+
+        .ticker-location {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .ticker-location .material-symbols-outlined {
+            font-size: 14px;
+        }
+
+        .ticker-budget {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-left: auto;
+        }
+
+        @media (max-width: 600px) {
+            .ticker-card {
+                width: 300px;
+            }
+
+            .real-requests {
+                padding: 80px 0 100px;
+            }
+        }
+
+        /* ========== WHY PHIMART — SCROLL INTERACTIVE ========== */
+        .why-premium {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            background: #FFFFFF;
+        }
+        
+        .why-premium-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 120px 40px;
+            display: flex;
+            align-items: flex-start;
+            gap: 80px;
+        }
+
+        .why-text-col {
+            flex: 1;
+            padding: 30vh 0; /* Creates scrollable space */
+        }
+
+        .why-step {
+            margin-bottom: 30vh;
+            opacity: 0.25;
+            transform: translateX(-20px);
+            transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            padding-left: 40px;
+            border-left: 2px solid #F1F3F4;
+        }
+
+        .why-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .why-step.active {
+            opacity: 1;
+            transform: translateX(0);
+            border-left-color: var(--primary-color);
+        }
+
+        .step-icon-wrap {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            background: #F8F9FA;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--primary-color);
+            border: 1px solid #E8EAED;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.03);
+            transition: background 0.4s ease, border-color 0.4s ease;
+        }
+
+        .why-step.active .step-icon-wrap {
+            background: #E8F0FE;
+            border-color: #D2E3FC;
+        }
+
+        .step-icon-wrap .material-symbols-outlined {
+            font-size: 28px;
+        }
+
+        .why-step h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin: 0 0 16px;
+            line-height: 1.25;
+        }
+
+        .why-step p {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 0;
+            max-width: 440px;
+        }
+
+        .why-visual-col {
+            flex: 1.2;
+            position: sticky;
+            top: 20vh;  /* Sticky position relative to viewport */
+            height: 60vh;
+            min-height: 500px;
+            max-height: 700px;
+        }
+
+        .why-visual-board {
+            width: 100%;
+            height: 100%;
+            background: #F8F9FA;
+            border: 1px solid #E8EAED;
+            border-radius: 32px;
+            box-shadow: 0 24px 80px rgba(0,0,0,0.04), inset 0 2px 4px rgba(255,255,255,0.5);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Abstract blurred accent behind the board elements */
+        .why-visual-board::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            height: 80%;
+            background: radial-gradient(circle, rgba(66,133,244,0.1) 0%, rgba(248,249,250,0) 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .viz-layer {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.6s;
+            transform: scale(0.96) translateY(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .viz-layer.active {
+            opacity: 1;
+            visibility: visible;
+            transform: scale(1) translateY(0);
+            z-index: 2;
+        }
+
+        /* --- VISUAL 1: Post once (connecting nodes) --- */
+        .viz-1-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .viz-1-center {
+            position: absolute;
+            top: 50%;
+            left: 25%;
+            transform: translate(-50%, -50%);
+            width: 80px;
+            height: 80px;
+            background: #FFFFFF;
+            border-radius: 20px;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid var(--primary-color);
+            z-index: 2;
+        }
+        .viz-1-center .material-symbols-outlined { color: var(--primary-color); font-size: 36px; }
+        
+        .viz-1-target {
+            position: absolute;
+            width: 220px;
+            background: #FFFFFF;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+            border: 1px solid #E8EAED;
+            left: 55%;
+            z-index: 2;
+        }
+        .viz-1-target.t1 { top: 20%; }
+        .viz-1-target.t2 { top: 45%; }
+        .viz-1-target.t3 { top: 70%; }
+
+        .viz-target-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 8px;
+        }
+        .viz-target-avatar {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #F1F3F4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .viz-target-avatar .material-symbols-outlined { font-size: 16px; color: #5F6368; }
+        .viz-target-bars div { height: 6px; border-radius: 4px; background: #E8EAED; margin-bottom: 4px; }
+        .viz-target-bars div:first-child { width: 80px; background: #BDC1C6; }
+        .viz-target-bars div:last-child { width: 40px; }
+        
+        /* Animated SVG Lines */
+        .viz-1-lines {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+        }
+        .viz-1-line path {
+            stroke: #D2E3FC;
+            stroke-width: 3;
+            fill: none;
+            stroke-dasharray: 10 10;
+            animation: dash-flow 2s linear infinite;
+        }
+        @keyframes dash-flow {
+            to { stroke-dashoffset: -20; }
+        }
+
+        /* --- VISUAL 2: Save hours (Clock to Check) --- */
+        .viz-2-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .viz-2-circle {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: #E8F0FE;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 32px;
+        }
+        .viz-2-icon {
+            font-size: 64px;
+            color: var(--primary-color);
+            position: absolute;
+        }
+        .viz-2-icon.clock {
+            animation: rotate-clock 4s linear infinite;
+        }
+        @keyframes rotate-clock {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .viz-2-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            width: 250px;
+        }
+        .viz-2-bar {
+            height: 16px;
+            border-radius: 8px;
+            background: #E8EAED;
+            width: 100%;
+            animation: pulse-bar 2s ease-in-out infinite alternate;
+        }
+        .viz-2-bar:nth-child(2) { width: 80%; animation-delay: 0.2s; }
+        .viz-2-bar:nth-child(3) { width: 60%; animation-delay: 0.4s; }
+        @keyframes pulse-bar {
+            0% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        /* --- VISUAL 3: Compare before (Stack of cards) --- */
+        .viz-3-content {
+            position: relative;
+            width: 280px;
+            height: 360px;
+        }
+        .viz-3-card {
+            position: absolute;
+            width: 100%;
+            height: 140px;
+            background: #FFFFFF;
+            border-radius: 20px;
+            border: 1px solid #E8EAED;
+            box-shadow: 0 12px 32px rgba(0,0,0,0.06);
+            padding: 24px;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .viz-layer.active .viz-3-card:nth-child(1) { transform: translateY(0); z-index: 3;}
+        .viz-layer.active .viz-3-card:nth-child(2) { transform: translateY(110px) scale(0.95); z-index: 2; }
+        .viz-layer.active .viz-3-card:nth-child(3) { transform: translateY(220px) scale(0.9); z-index: 1; }
+        
+        .viz-layer:not(.active) .viz-3-card {
+            transform: translateY(110px) scale(0.9) !important;
+        }
+        
+        .viz-3-header { display: flex; justify-content: space-between; margin-bottom: 20px;}
+        .viz-3-circle { width: 40px; height: 40px; border-radius: 50%; background: #F1F3F4; }
+        .viz-3-price { font-size: 20px; font-weight: 700; color: var(--primary-color);}
+        .viz-3-line { height: 8px; border-radius: 4px; background: #E8EAED; width: 60%; margin-bottom: 8px;}
+
+        /* --- VISUAL 4: AI Matching (Glowing orb) --- */
+        .viz-4-content {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+        .ai-core {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), #8AB4F8);
+            box-shadow: 0 0 40px rgba(66, 133, 244, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 3;
+            animation: pulse-core 3s infinite alternate;
+        }
+        .ai-core .material-symbols-outlined {
+            color: #FFF;
+            font-size: 48px;
+        }
+        @keyframes pulse-core {
+            0% { transform: scale(1); box-shadow: 0 0 30px rgba(66, 133, 244, 0.3); }
+            100% { transform: scale(1.1); box-shadow: 0 0 60px rgba(66, 133, 244, 0.6); }
+        }
+        .ai-ring {
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(66, 133, 244, 0.2);
+            animation: pulse-ring 4s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+        }
+        .ai-ring-1 { width: 200px; height: 200px; }
+        .ai-ring-2 { width: 340px; height: 340px; animation-delay: 1s; }
+        .ai-ring-3 { width: 480px; height: 480px; animation-delay: 2s; }
+        @keyframes pulse-ring {
+            0% { transform: scale(0.5); opacity: 1; }
+            100% { transform: scale(1.2); opacity: 0; }
+        }
+        
+        .ai-float {
+            position: absolute;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #FFFFFF;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5F6368;
+            z-index: 4;
+            animation: float-icon 6s ease-in-out infinite alternate;
+        }
+        .ai-float:nth-child(4) { top: 20%; left: 20%; animation-delay: 0s; }
+        .ai-float:nth-child(5) { bottom: 20%; left: 25%; animation-delay: 1s; }
+        .ai-float:nth-child(6) { top: 30%; right: 20%; animation-delay: 2s; }
+        .ai-float:nth-child(7) { bottom: 25%; right: 25%; animation-delay: 3s; }
+        
+        @keyframes float-icon {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+
+        @media (max-width: 992px) {
+            .why-premium-inner {
+                flex-direction: column;
+                padding: 80px 32px;
+                gap: 40px;
+            }
+            .why-text-col { padding: 0; display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 24px; padding-bottom: 24px; min-width: 100%;}
+            .why-step {
+                min-width: 85vw;
+                min-height: auto;
+                margin-bottom: 0;
+                scroll-snap-align: center;
+                opacity: 1;
+                transform: none;
+                padding: 24px;
+                border-left: none;
+                border-top: 4px solid #E8EAED;
+                background: #F8F9FA;
+                border-radius: 20px;
+            }
+            .why-step.active { border-top-color: var(--primary-color); }
+            .why-visual-col {
+                position: relative;
+                top: 0;
+                width: 100%;
+                height: 450px;
+                flex: none;
+            }
+        }
+        /* ========== BUSINESS PREMIUM SECTION ========== */
+        .business-premium {
+            padding: 160px 0;
+            background: #F8F9FA;
+            position: relative;
+            overflow: hidden;
+            border-top: 1px solid #E8EAED;
+            border-bottom: 1px solid #E8EAED;
+        }
+
+        .business-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            gap: 100px;
+        }
+
+        .biz-text-col {
+            flex: 1;
+        }
+
+        .biz-visual-col {
+            flex: 1.2;
+            position: relative;
+        }
+
+        .biz-text-col .section-badge {
+            margin-bottom: 24px;
+        }
+
+        .biz-text-col h2 {
+            font-size: 3rem;
+            line-height: 1.15;
+            margin-bottom: 24px;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .biz-text-col .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            line-height: 1.6;
+            max-width: 500px;
+        }
+
+        .biz-features {
+            display: grid;
+            gap: 32px;
+        }
+
+        .biz-feature {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        .biz-feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: #FFFFFF;
+            border: 1px solid #E8EAED;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            flex-shrink: 0;
+        }
+
+        .biz-feature h4 {
+            font-size: 1.125rem;
+            margin: 0 0 8px;
+            color: var(--text-main);
+        }
+
+        .biz-feature p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Dashboard Mockup Styling */
+        .dashboard-mockup {
+            background: #FFFFFF;
+            border-radius: 24px;
+            border: 1px solid #E8EAED;
+            box-shadow: 0 40px 100px rgba(0,0,0,0.08);
+            width: 100%;
+            height: 540px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .db-header {
+            padding: 20px 24px;
+            border-bottom: 1px solid #F1F3F4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+            z-index: 2;
+        }
+
+        .db-title-wrap {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .db-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #34A853;
+            box-shadow: 0 0 10px rgba(52, 168, 83, 0.4);
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+            0% { transform: scale(1); opacity: 1; }
+            50% { transform: scale(1.5); opacity: 0.5; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        .db-title {
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 0.9375rem;
+        }
+
+        .db-content {
+            flex: 1;
+            padding: 24px;
+            background: #F8F9FA;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .db-requests-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            position: relative;
+        }
+
+        .db-card {
+            background: #FFFFFF;
+            border: 1px solid #E8EAED;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            animation: slide-in-request 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+            opacity: 0;
+            transform: translateY(30px) scale(0.95);
+        }
+
+        @keyframes slide-in-request {
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        .db-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .db-label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            background: #E8F0FE;
+            padding: 4px 10px;
+            border-radius: 100px;
+        }
+
+        .db-time {
+            font-size: 0.75rem;
+            color: #9AA0A6;
+        }
+
+        .db-request-text {
+            font-size: 0.9375rem;
+            color: var(--text-main);
+            line-height: 1.4;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .db-card-footer {
+            display: flex;
+            gap: 12px;
+        }
+
+        .db-btn {
+            flex: 1;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .db-btn-primary {
+            background: var(--primary-color);
+            color: #FFF;
+        }
+
+        .db-btn-secondary {
+            background: #F1F3F4;
+            color: #5F6368;
+        }
+
+        /* Abstract shapes specifically for this section */
+        .biz-glow {
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(66, 133, 244, 0.1) 0%, rgba(66, 133, 244, 0) 70%);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        @media (max-width: 992px) {
+            .business-inner {
+                flex-direction: column;
+                gap: 60px;
+                padding: 0 32px;
+            }
+            .biz-text-col h2 {
+                font-size: 2.25rem;
+            }
+            .dashboard-mockup {
+                height: 480px;
+            }
+        }
+        /* ========== AI MATCHING SECTION ========== */
+        .ai-matching {
+            padding: 160px 0;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-matching-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            text-align: center;
+        }
+
+        .ai-matching h2 {
+            font-size: 3rem;
+            margin-bottom: 24px;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .ai-matching .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 80px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .ai-network-container {
+            position: relative;
+            height: 600px;
+            margin-bottom: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* The SVG background for lines */
+        .ai-svg-overlay {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .network-line {
+            fill: none;
+            stroke: #D2E3FC;
+            stroke-width: 2;
+            stroke-dasharray: 8 8;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .network-line.active {
+            opacity: 1;
+            animation: line-flow 20s linear infinite;
+        }
+
+        @keyframes line-flow {
+            to { stroke-dashoffset: -200; }
+        }
+
+        .ai-core-card {
+            position: relative;
+            z-index: 10;
+            width: 320px;
+            background: #FFFFFF;
+            border: 2px solid var(--primary-color);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: 0 20px 60px rgba(66, 133, 244, 0.15);
+            text-align: left;
+            animation: core-pulse 3s infinite alternate;
+        }
+
+        @keyframes core-pulse {
+            0% { transform: scale(1); box-shadow: 0 20px 60px rgba(66, 133, 244, 0.1); }
+            100% { transform: scale(1.02); box-shadow: 0 20px 80px rgba(66, 133, 244, 0.25); }
+        }
+
+        .ai-core-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 16px;
+            color: var(--primary-color);
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .ai-core-text {
+            font-size: 1.125rem;
+            font-weight: 500;
+            color: var(--text-main);
+            line-height: 1.4;
+        }
+
+        .biz-match-card {
+            position: absolute;
+            z-index: 5;
+            width: 240px;
+            background: #FFFFFF;
+            border: 1px solid #E8EAED;
+            border-radius: 16px;
+            padding: 16px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.05);
+            text-align: left;
+            opacity: 0.6;
+            transform: scale(0.9);
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .biz-match-card.matched {
+            opacity: 1;
+            transform: scale(1);
+            border-color: #34A853;
+            box-shadow: 0 12px 32px rgba(52, 168, 83, 0.12);
+        }
+
+        .biz-match-card.m1 { top: 10%; right: 15%; }
+        .biz-match-card.m2 { top: 50%; right: 10%; transform: translateY(-50%) scale(0.9); }
+        .biz-match-card.m3 { bottom: 10%; right: 15%; }
+
+        .biz-match-card h4 {
+            margin: 0 0 4px;
+            font-size: 1rem;
+            color: var(--text-main);
+        }
+
+        .biz-match-card p {
+            margin: 0;
+            font-size: 0.8125rem;
+            color: var(--text-secondary);
+        }
+
+        .match-badge {
+            display: inline-block;
+            font-size: 0.6875rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            padding: 2px 8px;
+            background: #E6F4EA;
+            color: #1E8E3E;
+            border-radius: 4px;
+            margin-top: 8px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .matched .match-badge {
+            opacity: 1;
+        }
+
+        .ai-features-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .ai-feature-item {
+            text-align: left;
+        }
+
+        .ai-feature-item h4 {
+            font-size: 1.125rem;
+            color: var(--text-main);
+            margin-bottom: 12px;
+        }
+
+        .ai-feature-item p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        @media (max-width: 992px) {
+            .ai-matching h2 { font-size: 2.25rem; }
+            .ai-features-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+            .ai-network-container { height: 500px; }
+            .ai-core-card { width: 280px; }
+            .biz-match-card { width: 200px; }
+            .biz-match-card.m1 { right: 5%; }
+            .biz-match-card.m2 { right: 0; }
+            .biz-match-card.m3 { right: 5%; }
+        }
+
+        @media (max-width: 600px) {
+            .ai-features-grid { grid-template-columns: 1fr; }
+            .ai-network-container { flex-direction: column; height: auto; padding: 40px 0; gap: 40px;}
+            .biz-match-card { position: relative; inset: auto !important; transform: none !important; width: 100%; opacity: 1; margin-bottom: 16px;}
+            .ai-svg-overlay { display: none; }
+        }
+        /* ========== EARLY ACCESS SECTION ========== */
+        .early-access {
+            padding: 160px 0;
+            background: #FFFFFF;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .early-access-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .early-access h2 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            color: var(--text-main);
+            font-weight: 700;
+        }
+
+        .early-access .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+            line-height: 1.6;
+        }
+
+        .early-access-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            margin-bottom: 32px;
+        }
+
+        .early-access-bg-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, rgba(66, 133, 244, 0.05) 0%, rgba(66, 133, 244, 0) 70%);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ========== THREE STEPS SECTION ========== */
+        .simple-steps {
+            padding: 120px 0;
+            background: #F8F9FA;
+        }
+
+        .simple-steps-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .simple-steps h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 64px;
+            color: var(--text-main);
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 32px;
+        }
+
+        .step-card {
+            background: #FFFFFF;
+            padding: 40px;
+            border-radius: 24px;
+            border: 1px solid #E8EAED;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
+        }
+
+        .step-card-num {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: #E8F0FE;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .step-card h4 {
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+            color: var(--text-main);
+        }
+
+        .step-card p {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* ========== DUAL BENEFITS SECTION ========== */
+        .dual-benefits {
+            padding: 120px 0;
+            background: #FFFFFF;
+        }
+
+        .dual-benefits-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            gap: 60px;
+        }
+
+        .benefit-col {
+            flex: 1;
+            padding: 48px;
+            border-radius: 32px;
+            background: #F8F9FA;
+            border: 1px solid #E8EAED;
+        }
+
+        .benefit-col.biz {
+            background: #E8F0FE;
+            border-color: #D2E3FC;
+        }
+
+        .benefit-col h3 {
+            font-size: 2rem;
+            margin-bottom: 32px;
+            color: var(--text-main);
+        }
+
+        .benefit-list {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            gap: 20px;
+        }
+
+        .benefit-item {
+            display: flex;
+            gap: 16px;
+            align-items: center;
+            font-size: 1.125rem;
+            color: var(--text-main);
+            font-weight: 500;
+        }
+
+        .benefit-item span {
+            color: var(--primary-color);
+        }
+
+        /* ========== FINAL CTA SECTION ========== */
+        .final-cta {
+            padding: 140px 0;
+            background: var(--bg-soft-blue);
+            text-align: center;
+        }
+
+        .final-cta-inner {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .final-cta h2 {
+            font-size: 3rem;
+            margin-bottom: 24px;
+            color: var(--text-main);
+        }
+
+        .final-cta .subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+        }
+
+        /* ========== FOOTER SECTION ========== */
+        .footer {
+            padding: 100px 0 60px;
+            background: #FFFFFF;
+            border-top: 1px solid #E8EAED;
+        }
+
+        .footer-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        .footer-top {
+            display: grid;
+            grid-template-columns: 2fr repeat(3, 1fr);
+            gap: 80px;
+            margin-bottom: 80px;
+        }
+
+        .footer-brand .nav-logo {
+            margin-bottom: 24px;
+        }
+
+        .footer-brand p {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            max-width: 300px;
+        }
+
+        .footer-col h5 {
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 24px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .footer-links {
+            display: grid;
+            gap: 12px;
+        }
+
+        .footer-links a {
+            font-size: 0.9375rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            padding-top: 40px;
+            border-top: 1px solid #F1F3F4;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+            color: #9AA0A6;
+        }
+
+        @media (max-width: 992px) {
+            .footer-top { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .dual-benefits-inner { flex-direction: column; }
+            .steps-grid { grid-template-columns: 1fr; }
+            .early-access h2 { font-size: 2.5rem; }
+            .final-cta h2 { font-size: 2.25rem; }
+        }
+
+        @media (max-width: 600px) {
+            .footer-top { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 20px; text-align: center; }
+            .early-access-buttons { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="grid-canvas"></canvas>
+    <div class="navbar-wrapper">
+        <nav class="navbar">
+            <div class="nav-left">
+                <a href="#" class="nav-logo">
+                    <span class="material-symbols-outlined logo-icon">blur_on</span>
+                    PhiMart
+                </a>
+                <div class="nav-links">
+                    <a href="#" class="nav-item">Product</a>
+                    <a href="#" class="nav-item">Features</a>
+                    <a href="#" class="nav-item">Pricing</a>
+                    <a href="#" class="nav-item">Resources</a>
+                </div>
+            </div>
+            <div class="nav-right">
+                <a href="#" class="btn-nav btn-nav-secondary">Sign in</a>
+                <a href="#" class="btn-nav btn-nav-primary">Request a Demo</a>
+            </div>
+        </nav>
+    </div>
+
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-headline">Stop searching. Post what you need and let businesses come to you.</h1>
+            <p class="hero-subheadline">Describe what you need in seconds. Our AI finds the right businesses and they send you their best offers. Fast, simple, and free for customers.</p>
+            
+            <div class="hero-buttons">
+                <button class="btn btn-primary">Post What You Need</button>
+                <button class="btn btn-secondary">Get Customers for Your Business</button>
+            </div>
+            
+            <p class="hero-supporting-text">
+                <span class="material-symbols-outlined" style="font-size: 18px;">info</span>
+                Free for customers. Businesses subscribe to receive real customer requests.
+            </p>
+        </div>
+        
+        <div class="hero-mockup">
+            <div class="mockup-container">
+                <div class="input-box">
+                    <span class="material-symbols-outlined input-icon">auto_awesome</span>
+                    <span class="input-text">Need aircon cleaning tomorrow in Davao. Budget 1500.<span class="input-cursor"></span></span>
+                </div>
+                
+                <div class="ai-status">
+                    <span class="material-symbols-outlined" style="font-size: 20px;">check_circle</span>
+                    <span>AI matched you with 3 top-rated businesses</span>
+                </div>
+                
+                <div class="offers-list">
+                    <!-- Offer Card 1 -->
+                    <div class="offer-card">
+                        <div class="offer-info">
+                            <div class="business-title">
+                                <h4>AirCool Services</h4>
+                                <span class="material-symbols-outlined verified-icon" title="Verified Business">verified</span>
+                            </div>
+                            <p>Aircon cleaning package</p>
+                        </div>
+                        <div class="offer-price">
+                            <div class="price-value">₱1,400</div>
+                            <div class="price-label">Best Match</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Offer Card 2 -->
+                    <div class="offer-card">
+                        <div class="offer-info">
+                            <div class="business-title">
+                                <h4>FreshAir Technicians</h4>
+                                <span class="material-symbols-outlined verified-icon" title="Verified Business">verified</span>
+                            </div>
+                            <p>Full cleaning and checkup</p>
+                        </div>
+                        <div class="offer-price">
+                            <div class="price-value">₱1,500</div>
+                            <div class="price-label neutral">Competitive</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Offer Card 3 -->
+                    <div class="offer-card">
+                        <div class="offer-info">
+                            <div class="business-title">
+                                <h4>CoolFix Experts</h4>
+                            </div>
+                            <p>Same day service available</p>
+                        </div>
+                        <div class="offer-price">
+                            <div class="price-value">₱1,600</div>
+                            <div class="price-label neutral">Available Today</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS SECTION -->
+    <section class="how-it-works">
+        <div class="how-inner">
+            <div class="section-header">
+                <div class="section-badge">
+                    <span class="material-symbols-outlined" style="font-size: 16px;">bolt</span>
+                    Simple 3-step process
+                </div>
+                <h2 class="section-title">How PhiMart Works</h2>
+                <p class="section-subtitle">Post what you need, let AI do the matching, and choose the best offer — all in under a minute.</p>
+            </div>
+
+            <div class="steps-timeline">
+                <!-- Step 1 -->
+                <div class="step-row fade-in-up">
+                    <div class="step-text">
+                        <div class="step-num">01</div>
+                        <h3 class="step-h3">Post what you need</h3>
+                        <p class="step-desc">Describe the product or service you need in seconds. Our smart form helps you write the perfect request.</p>
+                    </div>
+                    <div class="step-node">
+                        <span class="material-symbols-outlined">edit_note</span>
+                    </div>
+                    <div class="step-mockup">
+                        <div class="mock-request">
+                            <div class="mock-label">Your Request</div>
+                            <div class="mock-input-row">
+                                <span class="material-symbols-outlined">auto_awesome</span>
+                                <span class="mock-input-text">Need aircon cleaning tomorrow in Davao. Budget ₱1,500.<span class="mock-typing-cursor"></span></span>
+                            </div>
+                            <div class="mock-tags">
+                                <span class="mock-tag">🏠 Home Service</span>
+                                <span class="mock-tag">📍 Davao City</span>
+                                <span class="mock-tag green">✓ Budget Set</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="step-row reverse fade-in-up">
+                    <div class="step-text">
+                        <div class="step-num">02</div>
+                        <h3 class="step-h3">AI finds the right businesses</h3>
+                        <p class="step-desc">Our AI understands your request and instantly notifies the most relevant local businesses who can help.</p>
+                    </div>
+                    <div class="step-node">
+                        <span class="material-symbols-outlined">auto_awesome</span>
+                    </div>
+                    <div class="step-mockup">
+                        <div class="mock-ai">
+                            <div class="mock-ai-top">
+                                <div class="ai-source">
+                                    <span class="material-symbols-outlined">person</span>
+                                    Your request
+                                </div>
+                                <span class="material-symbols-outlined ai-arrow">arrow_forward</span>
+                                <div class="ai-engine">
+                                    <span class="material-symbols-outlined">auto_awesome</span>
+                                </div>
+                                <span class="material-symbols-outlined ai-arrow">arrow_forward</span>
+                                <div class="ai-targets">
+                                    <div class="ai-biz"><span class="material-symbols-outlined">storefront</span></div>
+                                    <div class="ai-biz"><span class="material-symbols-outlined">storefront</span></div>
+                                    <div class="ai-biz"><span class="material-symbols-outlined">storefront</span></div>
+                                </div>
+                            </div>
+                            <div class="mock-ai-status">
+                                <span class="material-symbols-outlined">check_circle</span>
+                                3 businesses matched in 2 seconds
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="step-row fade-in-up">
+                    <div class="step-text">
+                        <div class="step-num">03</div>
+                        <h3 class="step-h3">Receive offers and choose</h3>
+                        <p class="step-desc">Businesses send their best offers directly to you. Compare prices, reviews, and pick the perfect match.</p>
+                    </div>
+                    <div class="step-node">
+                        <span class="material-symbols-outlined">checklist</span>
+                    </div>
+                    <div class="step-mockup">
+                        <div class="mock-offers">
+                            <div class="mock-offer-card featured">
+                                <div class="mock-offer-left">
+                                    <div class="mock-offer-icon"><span class="material-symbols-outlined">ac_unit</span></div>
+                                    <div>
+                                        <div class="mock-offer-name">AirCool Services</div>
+                                        <div class="mock-offer-detail">Aircon cleaning · ★ 4.9</div>
+                                    </div>
+                                </div>
+                                <div class="mock-offer-right">
+                                    <div class="mock-offer-price">₱1,400</div>
+                                    <span class="mock-offer-badge best">Best Match</span>
+                                </div>
+                            </div>
+                            <div class="mock-offer-card">
+                                <div class="mock-offer-left">
+                                    <div class="mock-offer-icon"><span class="material-symbols-outlined">air</span></div>
+                                    <div>
+                                        <div class="mock-offer-name">FreshAir Technicians</div>
+                                        <div class="mock-offer-detail">Full cleaning & checkup · ★ 4.7</div>
+                                    </div>
+                                </div>
+                                <div class="mock-offer-right">
+                                    <div class="mock-offer-price">₱1,500</div>
+                                    <span class="mock-offer-badge neutral">Competitive</span>
+                                </div>
+                            </div>
+                            <div class="mock-offer-card">
+                                <div class="mock-offer-left">
+                                    <div class="mock-offer-icon"><span class="material-symbols-outlined">engineering</span></div>
+                                    <div>
+                                        <div class="mock-offer-name">CoolFix Experts</div>
+                                        <div class="mock-offer-detail">Same day service · ★ 4.5</div>
+                                    </div>
+                                </div>
+                                <div class="mock-offer-right">
+                                    <div class="mock-offer-price">₱1,600</div>
+                                    <span class="mock-offer-badge neutral">Available Today</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- REAL REQUESTS — SCROLLING TICKER -->
+    <section class="real-requests">
+        <div class="requests-header">
+            <div class="section-badge">
+                <span class="live-dot"></span>
+                Live requests
+            </div>
+            <h2 class="section-title">Real Requests People Post</h2>
+            <p class="section-subtitle">See what customers are posting right now on PhiMart.</p>
+        </div>
+
+        <div class="ticker-wrapper">
+            <!-- Row 1: scrolls left -->
+            <div class="ticker-row ticker-row-1">
+                <div class="ticker-card">
+                    <div class="ticker-card-top">
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">ac_unit</span></div>
+                        <div class="ticker-user-info">
+                            <div class="ticker-username">Maria C.</div>
+                            <div class="ticker-time">2 min ago</div>
+                        </div>
+                        <span class="ticker-category home">Home Service</span>
+                    </div>
+                    <p class="ticker-text">Looking for aircon cleaning tomorrow. Budget around ₱1,500. Preferably morning schedule.</p>
+                    <div class="ticker-footer">
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao City</span>
+                        <span class="ticker-budget">₱1,500</span>
+                    </div>
+                </div>
+                <div class="ticker-card">
+                    <div class="ticker-card-top">
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">cake</span></div>
+                        <div class="ticker-user-info">
+                            <div class="ticker-username">James R.</div>
+                            <div class="ticker-time">8 min ago</div>
+                        </div>
+                        <span class="ticker-category food">Food</span>
+                    </div>
+                    <p class="ticker-text">Need a birthday cake for tomorrow. Chocolate flavor, for 20 people.</p>
+                    <div class="ticker-footer">
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao City</span>
+                        <span class="ticker-budget">₱1,200</span>
+                    </div>
+                </div>
+                <div class="ticker-card">
+                    <div class="ticker-card-top">
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">print</span></div>
+                        <div class="ticker-user-info">
+                            <div class="ticker-username">Alyssa M.</div>
+                            <div class="ticker-time">22 min ago</div>
+                        </div>
+                        <span class="ticker-category print">Printing</span>
+                    </div>
+                    <p class="ticker-text">Need 100 shirts printed with custom logo for a company event next week.</p>
+                    <div class="ticker-footer">
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao City</span>
+                        <span class="ticker-budget">₱8,000</span>
+                    </div>
+                </div>
+                <div class="ticker-card">
+                    <div class="ticker-card-top">
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">cleaning_services</span></div>
+                        <div class="ticker-user-info">
+                            <div class="ticker-username">Carlo D.</div>
+                            <div class="ticker-time">45 min ago</div>
+                        </div>
+                        <span class="ticker-category home">Home Service</span>
+                    </div>
+                    <p class="ticker-text">Need deep cleaning for a 3-bedroom house this Saturday. Pet-friendly products preferred.</p>
+                    <div class="ticker-footer">
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Matina, Davao</span>
+                        <span class="ticker-budget">₱2,500</span>
+                    </div>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="ticker-card">
+                    <div class="ticker-card-top">
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">ac_unit</span></div>
+                        <div class="ticker-user-info">
+                            <div class="ticker-username">Maria C.</div>
+                            <div class="ticker-time">2 min ago</div>
+                        </div>
+                        <span class="ticker-category home">Home Service</span>
+                    </div>
+                    <p class="ticker-text">Looking for aircon cleaning tomorrow. Budget around ₱1,500. Preferably morning schedule.</p>
+                    <div class="ticker-footer">
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao City</span>
+                        <span class="ticker-budget">₱1,500</span>
+                    </div>
+                </div>
+                <div class="ticker-card">
+                    <div class="ticker-card-top">
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">cake</span></div>
+                        <div class="ticker-user-info">
+                            <div class="ticker-username">James R.</div>
+                            <div class="ticker-time">8 min ago</div>
+                        </div>
+                        <span class="ticker-category food">Food</span>
+                    </div>
+                    <p class="ticker-text">Need a birthday cake for tomorrow. Chocolate flavor, for 20 people.</p>
+                    <div class="ticker-footer">
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao City</span>
+                        <span class="ticker-budget">₱1,200</span>
+                    </div>
+                </div>
+                <div class="ticker-card">
+                    <div class="ticker-card-top">
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">print</span></div>
+                        <div class="ticker-user-info">
+                            <div class="ticker-username">Alyssa M.</div>
+                            <div class="ticker-time">22 min ago</div>
+                        </div>
+                        <span class="ticker-category print">Printing</span>
+                    </div>
+                    <p class="ticker-text">Need 100 shirts printed with custom logo for a company event next week.</p>
+                    <div class="ticker-footer">
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao City</span>
+                        <span class="ticker-budget">₱8,000</span>
+                    </div>
+                </div>
+                <div class="ticker-card">
+                    <div class="ticker-card-top">
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">cleaning_services</span></div>
+                        <div class="ticker-user-info">
+                            <div class="ticker-username">Carlo D.</div>
+                            <div class="ticker-time">45 min ago</div>
+                        </div>
+                        <span class="ticker-category home">Home Service</span>
+                    </div>
+                    <p class="ticker-text">Need deep cleaning for a 3-bedroom house this Saturday. Pet-friendly products preferred.</p>
+                    <div class="ticker-footer">
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Matina, Davao</span>
+                        <span class="ticker-budget">₱2,500</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Row 2: scrolls right -->
+            <div class="ticker-row ticker-row-2">
+                <div class="ticker-card">
+                    <div class="ticker-card-top">
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">restaurant</span></div>
+                        <div class="ticker-user-info">
+                            <div class="ticker-username">Sophie L.</div>
+                            <div class="ticker-time">15 min ago</div>
+                        </div>
+                        <span class="ticker-category food">Food</span>
+                    </div>
+                    <p class="ticker-text">Looking for catering service for 40 people this weekend. Filipino menu preferred.</p>
+                    <div class="ticker-footer">
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Tagum City</span>
+                        <span class="ticker-budget">₱12,000</span>
+                    </div>
+                </div>
+                <div class="ticker-card">
+                    <div class="ticker-card-top">
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">plumbing</span></div>
+                        <div class="ticker-user-info">
+                            <div class="ticker-username">Rico T.</div>
+                            <div class="ticker-time">35 min ago</div>
+                        </div>
+                        <span class="ticker-category home">Home Service</span>
+                    </div>
+                    <p class="ticker-text">Looking for a plumber near Obrero today. Leaking faucet needs urgent fixing.</p>
+                    <div class="ticker-footer">
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Obrero, Davao</span>
+                        <span class="ticker-budget">₱800</span>
+                    </div>
+                </div>
+                <div class="ticker-card">
+                    <div class="ticker-card-top">
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">local_laundry_service</span></div>
+                        <div class="ticker-user-info">
+                            <div class="ticker-username">Ana G.</div>
+                            <div class="ticker-time">1 hr ago</div>
+                        </div>
+                        <span class="ticker-category home">Home Service</span>
+                    </div>
+                    <p class="ticker-text">Need someone to repair my washing machine. Samsung model, won't spin.</p>
+                    <div class="ticker-footer">
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Buhangin, Davao</span>
+                        <span class="ticker-budget">₱1,000</span>
+                    </div>
+                </div>
+                <div class="ticker-card">
+                    <div class="ticker-card-top">
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">photo_camera</span></div>
+                        <div class="ticker-user-info">
+                            <div class="ticker-username">Bea S.</div>
+                            <div class="ticker-time">2 hrs ago</div>
+                        </div>
+                        <span class="ticker-category print">Creative</span>
+                    </div>
+                    <p class="ticker-text">Looking for a photographer for a small product shoot. About 20 items, studio setup.</p>
+                    <div class="ticker-footer">
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao City</span>
+                        <span class="ticker-budget">₱3,000</span>
+                    </div>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="ticker-card">
+                    <div class="ticker-card-top">
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">restaurant</span></div>
+                        <div class="ticker-user-info">
+                            <div class="ticker-username">Sophie L.</div>
+                            <div class="ticker-time">15 min ago</div>
+                        </div>
+                        <span class="ticker-category food">Food</span>
+                    </div>
+                    <p class="ticker-text">Looking for catering service for 40 people this weekend. Filipino menu preferred.</p>
+                    <div class="ticker-footer">
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Tagum City</span>
+                        <span class="ticker-budget">₱12,000</span>
+                    </div>
+                </div>
+                <div class="ticker-card">
+                    <div class="ticker-card-top">
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">plumbing</span></div>
+                        <div class="ticker-user-info">
+                            <div class="ticker-username">Rico T.</div>
+                            <div class="ticker-time">35 min ago</div>
+                        </div>
+                        <span class="ticker-category home">Home Service</span>
+                    </div>
+                    <p class="ticker-text">Looking for a plumber near Obrero today. Leaking faucet needs urgent fixing.</p>
+                    <div class="ticker-footer">
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Obrero, Davao</span>
+                        <span class="ticker-budget">₱800</span>
+                    </div>
+                </div>
+                <div class="ticker-card">
+                    <div class="ticker-card-top">
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">local_laundry_service</span></div>
+                        <div class="ticker-user-info">
+                            <div class="ticker-username">Ana G.</div>
+                            <div class="ticker-time">1 hr ago</div>
+                        </div>
+                        <span class="ticker-category home">Home Service</span>
+                    </div>
+                    <p class="ticker-text">Need someone to repair my washing machine. Samsung model, won't spin.</p>
+                    <div class="ticker-footer">
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Buhangin, Davao</span>
+                        <span class="ticker-budget">₱1,000</span>
+                    </div>
+                </div>
+                <div class="ticker-card">
+                    <div class="ticker-card-top">
+                        <div class="ticker-avatar" style="background:#F1F3F4;"><span class="material-symbols-outlined" style="font-size:18px;color:#5F6368;">photo_camera</span></div>
+                        <div class="ticker-user-info">
+                            <div class="ticker-username">Bea S.</div>
+                            <div class="ticker-time">2 hrs ago</div>
+                        </div>
+                        <span class="ticker-category print">Creative</span>
+                    </div>
+                    <p class="ticker-text">Looking for a photographer for a small product shoot. About 20 items, studio setup.</p>
+                    <div class="ticker-footer">
+                        <span class="ticker-location"><span class="material-symbols-outlined">location_on</span> Davao City</span>
+                        <span class="ticker-budget">₱3,000</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY PHIMART — SCROLL INTERACTIVE SECTION -->
+    <section class="why-premium">
+        <div class="why-premium-inner">
+            <!-- Left: Scrolling Text -->
+            <div class="why-text-col">
+                <div class="section-badge" style="margin-bottom: 32px;">
+                    <span class="material-symbols-outlined" style="font-size: 16px;">verified</span>
+                    The PhiMart Advantage
+                </div>
+
+                <div class="why-step step-0 active">
+                    <div class="step-icon-wrap">
+                        <span class="material-symbols-outlined">campaign</span>
+                    </div>
+                    <h3>Post once. Get multiple offers.</h3>
+                    <p>Instead of searching and messaging many businesses, post your request once and let businesses come to you with their best offers.</p>
+                </div>
+
+                <div class="why-step step-1">
+                    <div class="step-icon-wrap">
+                        <span class="material-symbols-outlined">schedule</span>
+                    </div>
+                    <h3>Save hours of searching.</h3>
+                    <p>No more browsing dozens of pages. PhiMart instantly connects you with businesses ready to help.</p>
+                </div>
+
+                <div class="why-step step-2">
+                    <div class="step-icon-wrap">
+                        <span class="material-symbols-outlined">compare_arrows</span>
+                    </div>
+                    <h3>Compare before choosing.</h3>
+                    <p>View multiple offers, compare prices, and pick the best option for your needs.</p>
+                </div>
+
+                <div class="why-step step-3">
+                    <div class="step-icon-wrap">
+                        <span class="material-symbols-outlined">auto_awesome</span>
+                    </div>
+                    <h3>Powered by smart AI.</h3>
+                    <p>Our AI understands your request and matches you with the most relevant businesses near you — automatically and instantly.</p>
+                </div>
+            </div>
+
+            <!-- Right: Sticky Visuals -->
+            <div class="why-visual-col">
+                <div class="why-visual-board">
+                    <!-- Viz 0: Post once -->
+                    <div class="viz-layer viz-0 active">
+                        <div class="viz-1-content">
+                            <svg class="viz-1-lines" viewBox="0 0 500 600" preserveAspectRatio="none">
+                                <path class="viz-1-line" d="M 125 300 C 200 300, 200 120, 275 120" />
+                                <path class="viz-1-line" d="M 125 300 L 275 270" style="animation-delay: 0.5s;" />
+                                <path class="viz-1-line" d="M 125 300 C 200 300, 200 420, 275 420" style="animation-delay: 1s;" />
+                            </svg>
+                            <div class="viz-1-center">
+                                <span class="material-symbols-outlined">person</span>
+                            </div>
+                            <div class="viz-1-target t1">
+                                <div class="viz-target-header">
+                                    <div class="viz-target-avatar"><span class="material-symbols-outlined">storefront</span></div>
+                                    <div class="viz-target-bars"><div></div><div></div></div>
+                                </div>
+                            </div>
+                            <div class="viz-1-target t2">
+                                <div class="viz-target-header">
+                                    <div class="viz-target-avatar"><span class="material-symbols-outlined">handyman</span></div>
+                                    <div class="viz-target-bars"><div></div><div></div></div>
+                                </div>
+                            </div>
+                            <div class="viz-1-target t3">
+                                <div class="viz-target-header">
+                                    <div class="viz-target-avatar"><span class="material-symbols-outlined">restaurant</span></div>
+                                    <div class="viz-target-bars"><div></div><div></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Viz 1: Save hours -->
+                    <div class="viz-layer viz-1">
+                        <div class="viz-2-content">
+                            <div class="viz-2-circle">
+                                <span class="material-symbols-outlined viz-2-icon clock">schedule</span>
+                            </div>
+                            <div class="viz-2-bars">
+                                <div class="viz-2-bar"></div>
+                                <div class="viz-2-bar"></div>
+                                <div class="viz-2-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Viz 2: Compare -->
+                    <div class="viz-layer viz-2">
+                        <div class="viz-3-content">
+                            <div class="viz-3-card">
+                                <div class="viz-3-header">
+                                    <div class="viz-3-circle"></div>
+                                    <div class="viz-3-price">₱1,200</div>
+                                </div>
+                                <div class="viz-3-line"></div>
+                                <div class="viz-3-line" style="width: 40%;"></div>
+                            </div>
+                            <div class="viz-3-card">
+                                <div class="viz-3-header">
+                                    <div class="viz-3-circle"></div>
+                                    <div class="viz-3-price">₱1,500</div>
+                                </div>
+                                <div class="viz-3-line"></div>
+                                <div class="viz-3-line" style="width: 40%;"></div>
+                            </div>
+                            <div class="viz-3-card">
+                                <div class="viz-3-header">
+                                    <div class="viz-3-circle"></div>
+                                    <div class="viz-3-price">₱1,450</div>
+                                </div>
+                                <div class="viz-3-line"></div>
+                                <div class="viz-3-line" style="width: 40%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Viz 3: Smart AI -->
+                    <div class="viz-layer viz-3">
+                        <div class="viz-4-content">
+                            <div class="ai-ring ai-ring-1"></div>
+                            <div class="ai-ring ai-ring-2"></div>
+                            <div class="ai-ring ai-ring-3"></div>
+                            
+                            <div class="ai-float"><span class="material-symbols-outlined">camera_alt</span></div>
+                            <div class="ai-float"><span class="material-symbols-outlined">ac_unit</span></div>
+                            <div class="ai-float"><span class="material-symbols-outlined">cleaning_services</span></div>
+                            <div class="ai-float"><span class="material-symbols-outlined">plumbing</span></div>
+
+                            <div class="ai-core">
+                                <span class="material-symbols-outlined">auto_awesome</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- BUSINESS PREMIUM — DASHBOARD MOCKUP SECTION -->
+    <section class="business-premium">
+        <div class="business-inner">
+            <div class="biz-text-col">
+                <div class="section-badge">
+                    <span class="material-symbols-outlined" style="font-size: 16px;">business_center</span>
+                    For Service Providers
+                </div>
+                <h2>Built for Businesses That Want More Customers</h2>
+                <p class="subtitle">Stop waiting for customers to find you. Receive real requests from people actively looking for your service.</p>
+                
+                <div class="biz-features">
+                    <div class="biz-feature fade-in-up">
+                        <div class="biz-feature-icon">
+                            <span class="material-symbols-outlined">notifications_active</span>
+                        </div>
+                        <div>
+                            <h4>Receive real customer requests</h4>
+                            <p>Customers post exactly what they need. Get notified instantly when a request matches your service.</p>
+                        </div>
+                    </div>
+
+                    <div class="biz-feature fade-in-up">
+                        <div class="biz-feature-icon">
+                            <span class="material-symbols-outlined">target</span>
+                        </div>
+                        <div>
+                            <h4>Better leads, not random traffic</h4>
+                            <p>Only receive requests relevant to your business so you spend less time chasing customers.</p>
+                        </div>
+                    </div>
+
+                    <div class="biz-feature fade-in-up">
+                        <div class="biz-feature-icon">
+                            <span class="material-symbols-outlined">auto_awesome</span>
+                        </div>
+                        <div>
+                            <h4>Respond faster with AI</h4>
+                            <p>Use AI suggested responses to quickly send professional offers and stand out.</p>
+                        </div>
+                    </div>
+
+                    <div class="biz-feature fade-in-up">
+                        <div class="biz-feature-icon">
+                            <span class="material-symbols-outlined">trending_up</span>
+                        </div>
+                        <div>
+                            <h4>Win more customers</h4>
+                            <p>Turn requests into real paying clients and grow your business with a steady flow of leads.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="biz-visual-col">
+                <div class="biz-glow"></div>
+                <div class="dashboard-mockup">
+                    <div class="db-header">
+                        <div class="db-title-wrap">
+                            <span class="db-dot"></span>
+                            <span class="db-title">Incoming Requests</span>
+                        </div>
+                        <div class="material-symbols-outlined" style="color: #9AA0A6; font-size: 20px;">more_horiz</div>
+                    </div>
+                    <div class="db-content">
+                        <div class="db-requests-container" id="db-requests">
+                            <!-- Live requests will be injected here by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- AI MATCHING SECTION -->
+    <section class="ai-matching">
+        <div class="ai-matching-inner">
+            <div class="section-badge" style="margin: 0 auto 24px;">
+                <span class="material-symbols-outlined" style="font-size: 16px;">psychology</span>
+                Futuristic Matching
+            </div>
+            <h2>Smart Matching Powered by AI</h2>
+            <p class="subtitle">PhiMart uses intelligent technology to connect the right customers with the right businesses faster.</p>
+
+            <div class="ai-network-container" id="ai-network">
+                <!-- SVG lines for connection -->
+                <svg class="ai-svg-overlay" id="ai-svg">
+                    <path class="network-line l1" id="line1" d=""></path>
+                    <path class="network-line l2" id="line2" d=""></path>
+                    <path class="network-line l3" id="line3" d=""></path>
+                </svg>
+
+                <div class="ai-core-card" id="ai-request-card">
+                    <div class="ai-core-header">
+                        <span class="material-symbols-outlined">auto_awesome</span>
+                        CUSTOMER REQUEST
+                    </div>
+                    <p class="ai-core-text">"Need aircon cleaning tomorrow in Davao. Budget 1500."</p>
+                </div>
+
+                <div class="biz-match-card m1" id="biz1">
+                    <h4>CoolAir Services</h4>
+                    <p>Aircon cleaning package</p>
+                    <span class="match-badge">98% Match</span>
+                </div>
+
+                <div class="biz-match-card m2" id="biz2">
+                    <h4>FreshAir Experts</h4>
+                    <p>Full cleaning service</p>
+                    <span class="match-badge">95% Match</span>
+                </div>
+
+                <div class="biz-match-card m3" id="biz3">
+                    <h4>QuickCool Technicians</h4>
+                    <p>Same day service</p>
+                    <span class="match-badge">92% Match</span>
+                </div>
+            </div>
+
+            <div class="ai-features-grid">
+                <div class="ai-feature-item fade-in-up">
+                    <h4>Understands your request</h4>
+                    <p>Our AI analyzes your request even if it is short or unclear, extracting intent and requirements.</p>
+                </div>
+                <div class="ai-feature-item fade-in-up">
+                    <h4>Finds the best businesses</h4>
+                    <p>Businesses are matched based on service type, location, availability, and past quality scores.</p>
+                </div>
+                <div class="ai-feature-item fade-in-up">
+                    <h4>Smarter offers</h4>
+                    <p>Businesses can respond faster using AI assisted replies that suggest professional terms.</p>
+                </div>
+                <div class="ai-feature-item fade-in-up">
+                    <h4>Better results</h4>
+                    <p>Customers receive more relevant offers and better service options tailored to their exact needs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // ===== Interactive Dot-Grid with Gravitational Warp =====
+        const canvas = document.getElementById('grid-canvas');
+        const ctx = canvas.getContext('2d');
+
+        let W, H;
+        const SPACING = 40;       // Grid spacing in px
+        const DOT_RADIUS = 1.5;
+        const INFLUENCE = 160;    // Mouse influence radius
+        const STRENGTH = 28;      // How far dots push away
+        const LINE_DIST = 55;     // Max distance to draw connecting lines
+        let dots = [];
+        let mouse = { x: -1000, y: -1000 };
+        let smoothMouse = { x: -1000, y: -1000 };
+
+        function resize() {
+            W = window.innerWidth;
+            H = window.innerHeight;
+            canvas.width = W;
+            canvas.height = H;
+            buildGrid();
+        }
+
+        function buildGrid() {
+            dots = [];
+            const cols = Math.ceil(W / SPACING) + 2;
+            const rows = Math.ceil(H / SPACING) + 2;
+            const offsetX = (W - (cols - 1) * SPACING) / 2;
+            const offsetY = (H - (rows - 1) * SPACING) / 2;
+
+            for (let r = 0; r < rows; r++) {
+                for (let c = 0; c < cols; c++) {
+                    dots.push({
+                        ox: offsetX + c * SPACING,
+                        oy: offsetY + r * SPACING,
+                        x: offsetX + c * SPACING,
+                        y: offsetY + r * SPACING
+                    });
+                }
+            }
+        }
+
+        document.addEventListener('mousemove', e => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        document.addEventListener('mouseleave', () => {
+            mouse.x = -1000;
+            mouse.y = -1000;
+        });
+
+        function draw() {
+            ctx.clearRect(0, 0, W, H);
+
+            // Smooth the mouse position for fluid motion
+            smoothMouse.x += (mouse.x - smoothMouse.x) * 0.12;
+            smoothMouse.y += (mouse.y - smoothMouse.y) * 0.12;
+
+            const mx = smoothMouse.x;
+            const my = smoothMouse.y;
+
+            // Update dot positions based on mouse proximity
+            for (const dot of dots) {
+                const dx = dot.ox - mx;
+                const dy = dot.oy - my;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < INFLUENCE) {
+                    const force = (1 - dist / INFLUENCE);
+                    const angle = Math.atan2(dy, dx);
+                    // Ease the push with a cubic curve for a smooth falloff
+                    const push = force * force * STRENGTH;
+                    dot.x = dot.ox + Math.cos(angle) * push;
+                    dot.y = dot.oy + Math.sin(angle) * push;
+                } else {
+                    // Smoothly return to original position
+                    dot.x += (dot.ox - dot.x) * 0.1;
+                    dot.y += (dot.oy - dot.y) * 0.1;
+                }
+            }
+
+            // Draw connecting lines between nearby warped dots
+            for (let i = 0; i < dots.length; i++) {
+                for (let j = i + 1; j < dots.length; j++) {
+                    const a = dots[i];
+                    const b = dots[j];
+                    // Only check neighbors (original distance must be close)
+                    const origDx = a.ox - b.ox;
+                    const origDy = a.oy - b.oy;
+                    const origDist = Math.sqrt(origDx * origDx + origDy * origDy);
+                    if (origDist > SPACING * 1.5) continue;
+
+                    const ddx = a.x - b.x;
+                    const ddy = a.y - b.y;
+                    const d = Math.sqrt(ddx * ddx + ddy * ddy);
+
+                    if (d < LINE_DIST) {
+                        // Lines only appear near the cursor influence zone
+                        const midX = (a.x + b.x) / 2;
+                        const midY = (a.y + b.y) / 2;
+                        const distToMouse = Math.sqrt((midX - mx) * (midX - mx) + (midY - my) * (midY - my));
+
+                        if (distToMouse < INFLUENCE * 1.3) {
+                            const lineAlpha = (1 - distToMouse / (INFLUENCE * 1.3)) * 0.15;
+                            ctx.beginPath();
+                            ctx.moveTo(a.x, a.y);
+                            ctx.lineTo(b.x, b.y);
+                            ctx.strokeStyle = `rgba(66, 133, 244, ${lineAlpha})`;
+                            ctx.lineWidth = 0.5;
+                            ctx.stroke();
+                        }
+                    }
+                }
+            }
+
+            // Draw dots
+            for (const dot of dots) {
+                const dx = dot.x - mx;
+                const dy = dot.y - my;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                let alpha, r, g, b;
+                if (dist < INFLUENCE) {
+                    const t = 1 - dist / INFLUENCE;
+                    // Transition from gray to Google blue near cursor
+                    r = Math.round(200 - t * 134);  // 200 → 66
+                    g = Math.round(200 - t * 67);    // 200 → 133
+                    b = Math.round(210 + t * 34);    // 210 → 244
+                    alpha = 0.15 + t * 0.55;         // 0.15 → 0.7
+                } else {
+                    r = 200; g = 200; b = 210;
+                    alpha = 0.15;
+                }
+
+                const radius = dist < INFLUENCE
+                    ? DOT_RADIUS + (1 - dist / INFLUENCE) * 2
+                    : DOT_RADIUS;
+
+                ctx.beginPath();
+                ctx.arc(dot.x, dot.y, radius, 0, Math.PI * 2);
+                ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha})`;
+                ctx.fill();
+            }
+
+            requestAnimationFrame(draw);
+        }
+
+        window.addEventListener('resize', resize);
+        resize();
+        draw();
+
+        // Scroll-triggered fade-in animation
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('visible');
+                    }, index * 150);
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.15 });
+
+        document.querySelectorAll('.fade-in-up').forEach(el => observer.observe(el));
+
+        // Sticky Scroll Intersection Logic for Why Customers Love section
+        const whySteps = document.querySelectorAll('.why-step');
+        const vizLayers = document.querySelectorAll('.viz-layer');
+
+        if(whySteps.length > 0) {
+            const stepObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        whySteps.forEach(step => step.classList.remove('active'));
+                        vizLayers.forEach(viz => viz.classList.remove('active'));
+                        
+                        entry.target.classList.add('active');
+                        
+                        let i = 0;
+                        whySteps.forEach((step, index) => {
+                            if (step === entry.target) i = index;
+                        });
+                        
+                        if(vizLayers[i]) {
+                            vizLayers[i].classList.add('active');
+                        }
+                    }
+                });
+            }, { 
+                rootMargin: '-30% 0px -50% 0px' 
+            });
+
+            whySteps.forEach(step => stepObserver.observe(step));
+        }
+
+        // ===== Dashboard Mockup Activity Simulation =====
+        const dbContainer = document.getElementById('db-requests');
+        const SAMPLE_REQUESTS = [
+            { text: "Need aircon cleaning tomorrow in Davao. Budget ₱1,500.", tag: "Aircon Service", time: "Just now" },
+            { text: "Looking for catering service for 50 people this weekend.", tag: "Catering", time: "Just now" },
+            { text: "Need 100 shirts printed for a company event next week.", tag: "Printing", time: "Just now" },
+            { text: "Looking for a plumber near Obrero for a leaking faucet.", tag: "Plumbing", time: "Just now" },
+            { text: "Need someone to repair my Samsung washing machine.", tag: "Appliance Repair", time: "Just now" }
+        ];
+
+        let reqIndex = 0;
+
+        function addRequest() {
+            if (!dbContainer) return;
+            
+            const req = SAMPLE_REQUESTS[reqIndex % SAMPLE_REQUESTS.length];
+            const card = document.createElement('div');
+            card.className = 'db-card';
+            card.innerHTML = `
+                <div class="db-card-top">
+                    <span class="db-label">${req.tag}</span>
+                    <span class="db-time">${req.time}</span>
+                </div>
+                <p class="db-request-text">${req.text}</p>
+                <div class="db-card-footer">
+                    <div class="db-btn db-btn-primary">Send Offer</div>
+                    <div class="db-btn db-btn-secondary">View Details</div>
+                </div>
+            `;
+            
+            // Limit to 3 cards visible at once
+            if (dbContainer.children.length >= 3) {
+                const last = dbContainer.firstElementChild;
+                last.style.opacity = '0';
+                last.style.transform = 'translateY(-20px) scale(0.9)';
+                last.style.transition = 'all 0.4s ease';
+                setTimeout(() => last.remove(), 400);
+            }
+            
+            dbContainer.appendChild(card);
+            reqIndex++;
+        }
+
+        // ===== AI Matching Animation Logic =====
+        function initAiMatching() {
+            const svg = document.getElementById('ai-svg');
+            const reqCard = document.getElementById('ai-request-card');
+            const bizes = [
+                document.getElementById('biz1'),
+                document.getElementById('biz2'),
+                document.getElementById('biz3')
+            ];
+            const lines = [
+                document.getElementById('line1'),
+                document.getElementById('line2'),
+                document.getElementById('line3')
+            ];
+
+            if (!svg || !reqCard) return;
+
+            function updateLines() {
+                const rRect = reqCard.getBoundingClientRect();
+                const sRect = svg.getBoundingClientRect();
+                
+                const x1 = (rRect.left + rRect.width) - sRect.left;
+                const y1 = (rRect.top + rRect.height / 2) - sRect.top;
+
+                bizes.forEach((biz, i) => {
+                    const bRect = biz.getBoundingClientRect();
+                    const x2 = bRect.left - sRect.left;
+                    const y2 = (bRect.top + bRect.height / 2) - sRect.top;
+
+                    // Quadratic Bezier curve for smooth flow
+                    const cpX = (x1 + x2) / 2 + 50;
+                    const cpY = (y1 + y2) / 2;
+                    
+                    lines[i].setAttribute('d', `M ${x1} ${y1} Q ${cpX} ${cpY} ${x2} ${y2}`);
+                });
+            }
+
+            // Runs matching sequence
+            function startMatching() {
+                // Reset
+                bizes.forEach(b => b.classList.remove('matched'));
+                lines.forEach(l => l.classList.remove('active'));
+
+                // Sequential matching
+                setTimeout(() => {
+                    lines[0].classList.add('active');
+                    setTimeout(() => bizes[0].classList.add('matched'), 400);
+                }, 1000);
+
+                setTimeout(() => {
+                    lines[1].classList.add('active');
+                    setTimeout(() => bizes[1].classList.add('matched'), 400);
+                }, 2000);
+
+                setTimeout(() => {
+                    lines[2].classList.add('active');
+                    setTimeout(() => bizes[2].classList.add('matched'), 400);
+                }, 3000);
+
+                // Re-run every 8 seconds
+                setTimeout(startMatching, 8000);
+            }
+
+            // Update lines on resize and initial
+            window.addEventListener('resize', updateLines);
+            updateLines();
+            
+            // Start when section is visible
+            const aiObserver = new IntersectionObserver((entries) => {
+                if (entries[0].isIntersecting) {
+                    startMatching();
+                    aiObserver.disconnect();
+                }
+            }, { threshold: 0.3 });
+            
+            aiObserver.observe(document.querySelector('.ai-matching'));
+        }
+
+        initAiMatching();
+    </script>
+</body>
+</html>

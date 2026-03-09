@@ -23,6 +23,19 @@
             --google-red: #EA4335;
             --google-yellow: #FBBC04;
             --google-green: #34A853;
+            --bg-soft-blue: #F0F4F8;
+            --bg-soft-gray: #F8F9FA;
+            --bg-mesh-1: rgba(66, 133, 244, 0.03);
+            --bg-mesh-2: rgba(52, 168, 83, 0.02);
+        }
+
+        .grain-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 9999;
+            pointer-events: none;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3%3Cfilter id='noiseFilter'%3%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3%3C/filter%3%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3%3C/svg%3");
         }
 
         #grid-canvas {
@@ -259,7 +272,10 @@
             justify-content: center;
             padding: 100px 40px;
             box-sizing: border-box;
-            background: radial-gradient(circle at 50% 50%, rgba(66, 133, 244, 0.04), transparent 70%);
+            background: 
+                radial-gradient(circle at 20% 30%, var(--bg-mesh-1), transparent 40%),
+                radial-gradient(circle at 80% 70%, var(--bg-mesh-2), transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(66, 133, 244, 0.04), transparent 70%);
         }
 
         .hero-dynamic-hub {
@@ -562,7 +578,15 @@
             z-index: 1;
             width: 100%;
             padding: 120px 0 140px;
-            background: linear-gradient(180deg, #FFFFFF 0%, #F6F8FC 100%);
+            background: linear-gradient(180deg, #FFFFFF 0%, var(--bg-soft-gray) 100%);
+        }
+
+        .how-it-works::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(600px circle at center, rgba(66, 133, 244, 0.02), transparent);
+            pointer-events: none;
         }
 
         .how-inner {
@@ -1086,7 +1110,7 @@
             z-index: 1;
             width: 100%;
             padding: 120px 0 140px;
-            background: linear-gradient(180deg, #F6F8FC 0%, #FFFFFF 100%);
+            background: linear-gradient(180deg, var(--bg-soft-gray) 0%, #FFFFFF 100%);
             overflow: hidden;
         }
 
@@ -1319,7 +1343,7 @@
             position: relative;
             z-index: 1;
             width: 100%;
-            background: #FFFFFF;
+            background: radial-gradient(at top lightblue, var(--bg-soft-blue) 0%, #FFFFFF 100%);
         }
 
         .why-premium-inner {
@@ -2146,9 +2170,20 @@
         /* ========== AI MATCHING SECTION ========== */
         .ai-matching {
             padding: 160px 0;
-            background: #FFFFFF;
+            background: var(--bg-soft-gray);
             position: relative;
             overflow: hidden;
+        }
+
+        .ai-matching::before {
+            content: '';
+            position: absolute;
+            width: 120%;
+            height: 120%;
+            top: -10%;
+            left: -10%;
+            background: repeating-radial-gradient(circle at center, transparent 0, transparent 40px, rgba(66, 133, 244, 0.02) 41px, transparent 42px);
+            pointer-events: none;
         }
 
         .ai-matching-inner {
@@ -2411,7 +2446,7 @@
         /* ========== EARLY ACCESS SECTION ========== */
         .early-access {
             padding: 160px 0;
-            background: #FFFFFF;
+            background: radial-gradient(circle at center, #FFFFFF 0%, #F0F4F8 100%);
             position: relative;
             overflow: hidden;
             text-align: center;
@@ -2568,7 +2603,7 @@
         /* ========== THREE STEPS SECTION: FLOW & FOCUS ========== */
         .simple-steps {
             padding: 160px 0;
-            background: #FFFFFF;
+            background: linear-gradient(45deg, #FFFFFF 0%, var(--bg-soft-gray) 100%);
             position: relative;
         }
 
@@ -3115,6 +3150,7 @@
 </head>
 
 <body>
+    <div class="grain-overlay"></div>
     <canvas id="grid-canvas"></canvas>
     <div class="navbar-wrapper">
         <nav class="navbar">
